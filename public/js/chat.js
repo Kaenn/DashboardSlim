@@ -8,13 +8,9 @@
 
 
 	$.fn.chat=function(methodOrOptions){
-		console.log('glenn2');
 		var methodArgs=arguments;	
 		this.each(function(){
-			console.log('here');
-			console.log($(this));
 			var chat=$(this).data('chat6');
-			console.log(chat);
 			if (typeof chat === "undefined") {
 				// On initialise la classe
 				var options=methodOrOptions;
@@ -34,35 +30,35 @@
 
 
 
-	$.chat=function(contener,methodOrOptions){
-		this.contener=contener;
-	
-		this.initialize = function(){
+	$.chat=function(that,methodOrOptions){
+		var initialize = function(){
 			// Debut variable de test
-			this.compteur=0;
+			that.compteur=0;
 			// Fin Variable de test
 			
 			// On vide le conteneur
-			this.contener.html('');
+			that.html('');
 			
 			// Création du conteneur de message
-			this._messageContent=$('<div></div>').addClass('chat-content-message');   
+			that._messageContent=$('<div></div>').addClass('chat-content-message');   
 			
 			// Création du squelette du chat
-			this.contener.append(
+			that.append(
 				$('<div></div>').addClass('panel panel-default no-radius').append(
 					[
-						$('<div></div>').addClass("panel-heading").html(this.parametres.title),
+						$('<div></div>').addClass("panel-heading").html(that.parametres.title),
 						$('<div></div>').addClass("panel-body").append(
-							$('<ul></ul>').addClass('chat').css('height',this.parametres.height).append(this._messageContent)
+							$('<ul></ul>').addClass('chat').css('height',that.parametres.height).append(that._messageContent)
 						)
 					]
 				)
 			);
-			return this;
+			return that;
 		};
 		
-		this.addMessage = function(auteur,time,message){
+		var addMessage = function(auteur,time,message){
+			console.log('Glenn beau gosse ;) ====> '+auteur+" ## "+time+" ## "+message);
+		
 			var message_elem=$('<li></li>').addClass("clearfix").append(
 				$('<div></div').addClass('chat-body clearfix').append(
 					[
@@ -81,21 +77,23 @@
 					]
 				)
 			);
-			this._messageContent.append(message_elem);
-			while(this._messageContent.children().length > this.parametres.maxMessage){
-				this._messageContent.children().first().remove();
+			that._messageContent.append(message_elem);
+			while(that._messageContent.children().length > that.parametres.maxMessage){
+				that._messageContent.children().first().remove();
 			}
-			return this;
+			return that;
 		};
 		
 		var methods={
-			addMessage : function(auteur,time,message){ return this.addMessage(auteur,time,message)}
+			addMessage : function(auteur,time,message){ return addMessage(auteur,time,message)}
 		};
 		
-		this.doPublicMethod=function(method,args){
-			console.log('metho chat');
+		that.doPublicMethod=function(method,args){
+			console.log('metho chat DEBUT args');
+			for(key in args) console.log('metho chat args => '+args[key]);
+			console.log('metho chat FIN args');
 			if ( methods[method] ) {
-				return methods[ method ].apply( this, Array.prototype.slice.call( args, 1 ));
+				return methods[ method ].apply( that, Array.prototype.slice.call( args, 1 ));
 			} else{
 				$.error( 'Method ' +  method + ' does not exist on jQuery.chat' );
 			}
@@ -103,8 +101,8 @@
 		
 		
 		// Prise en compte des options utilisateurs
-		this.parametres=$.extend(defauts, methodOrOptions);
-		return this.initialize();
+		that.parametres=$.extend(defauts, methodOrOptions);
+		return initialize();
 		
     };
 	

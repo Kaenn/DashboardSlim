@@ -28,18 +28,16 @@
 
 
 
-	$.gauge=function(contener,methodOrOptions){
-		this.contener=contener;
-		
-		this.gauge=null;
+	$.gauge=function(that,methodOrOptions){
+		that.gauge=null;
 	
-		this.initialize = function(){
+		var initialize = function(){
 			
 			// On vide le conteneur
-			this.contener.html('');
+			that.html('');
 			
 			// Création du squelette du gauage
-			this.contener.append(
+			that.append(
 				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
 					$('<div>', { "class" : "panel-heading"}).html("Titre du gauge"),
 					$('<div>', { "class" : "panel-body"}).append(
@@ -48,7 +46,7 @@
 				])
 			);
 			
-			this.gauge = c3.generate({
+			that.gauge = c3.generate({
 				bindto: '#gauge1',
 				data: {
 					columns: [
@@ -83,23 +81,23 @@
 					show : false
 				}
 			});
-			return this;
+			return that;
 		};
 		
-		this.update = function(val){
-			this.gauge.load({
+		var update = function(val){
+			that.gauge.load({
 				columns: [['data', val]]
 			});
-			return this;
+			return that;
 		};
 		
 		var methods={
-			update : function(val){ return this.update(val)}
+			update : function(val){ return update(val)}
 		};
 		
-		this.doPublicMethod=function(method,args){
+		that.doPublicMethod=function(method,args){
 			if ( methods[method] ) {
-				return methods[ method ].apply( this, Array.prototype.slice.call( args, 1 ));
+				return methods[ method ].apply( that, Array.prototype.slice.call( args, 1 ));
 			} else{
 				$.error( 'Method ' +  method + ' does not exist on jQuery.gauge' );
 			}
@@ -107,8 +105,8 @@
 		
 		
 		// Prise en compte des options utilisateurs
-		this.parametres=$.extend(defauts, methodOrOptions);
-		return this.initialize();
+		that.parametres=$.extend(defauts, methodOrOptions);
+		return initialize();
 		
     };
 	
