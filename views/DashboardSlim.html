@@ -21,16 +21,25 @@
 		
 		<script src="/js/slim-dashboard.js"></script>
 		<script src="/js/chat.js"></script>
+		<script src="/js/gauge.js"></script>
 		
 		
 		<script src="/socket.io/socket.io.js"></script>
         <script>
 			$(function(){
-				$('#chat-div').chat();
+				
+				$('#chat-div').chat({'height' : '600px'});
+				
+				$('#gauge-div').gauge();
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
+					console.log('glenn');
 					$('#chat-div').chat('addMessage',auteur,time,message);
+				});
+				
+				socket.on('update-gauge', function(val) {
+					$('#gauge-div').gauge('update',val);
 				});
 			});
         </script>
@@ -38,8 +47,12 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div id="right-menu" class="col-lg-2 cadre">
+				<div id="right-menu" class="col-lg-4 cadre">
 					<div id="chat-div"></div>
+				</div>
+				
+				<div id="right-menu" class="col-lg-4 cadre">
+					<div id="gauge-div"></div>
 				</div>
 			</div>
 		</div>
