@@ -1,0 +1,575 @@
+<!DOCTYPES html>
+<html>
+	<head>
+		<title>Claranet - Unified Live Dashboard -  [refreshed every 60 s]</title>
+            
+        <!-- Bootstrap core CSS -->
+        <link href="public/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap theme -->
+        <link href="public/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
+		<link href="public/js/c3/c3.css" rel="stylesheet" type="text/css">
+		
+		<link href="public/css/maquetteV1.css" rel="stylesheet" type="text/css">
+
+		
+		<meta name="Author" content="SI, Claranet FR">
+		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
+		<script src="public/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+		
+		<script src="public/js/d3/d3.min.js" charset="utf-8"></script>
+		<script src="public/js/c3/c3.min.js"></script>
+		
+		<script src="public/js/maquetteV1.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 cadre">
+					<div class="content" id="repartition-alert">
+						<div class="row">
+							<div id="progress-legend">
+								<div class="legend-zabbix">
+									<span class="label-legend">Zabbix</span>
+									<span class="badge badge-legend">34</span>
+								</div>
+								
+								<div class="legend-wpm">
+									<span class="label-legend">WPM</span>
+									<span class="badge badge-legend">23</span>
+								</div>
+								
+								<div class="legend-oraconsole">
+									<span class="label-legend">Oraconsole</span>
+									<span class="badge badge-legend">32</span>
+								</div>
+								
+								<div class="legend-nagios-sd">
+									<span class="label-legend">Nagios-SD</span>
+									<span class="badge badge-legend">3</span>
+								</div>
+								
+								<div class="legend-typhon">
+									<span class="label-legend">Typhon</span>
+									<span class="badge badge-legend">8</span>
+								</div>
+								
+								<div class="legend-aws">
+									<span class="label-legend">AWS</span>
+									<span class="badge badge-legend">2</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="progress">
+							  <div class="progress-bar progress-bar-zabbix" style="width: 34%"></div>
+							  <div class="progress-bar progress-bar-wpm" style="width: 23%"></div>
+							  <div class="progress-bar progress-bar-oraconsole" style="width: 32%"></div>
+							  <div class="progress-bar progress-bar-nagios-sd" style="width: 3%"></div>
+							  <div class="progress-bar progress-bar-typhon" style="width: 5%"></div>
+							  <div class="progress-bar progress-bar-aws" style="width: 3%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="padding-left : 15px;">
+				<div class="col-lg-2 cadre menu-gauge">
+					<div class="panel panel-default panel-gauge">
+						<div class="panel-heading">Titre du gauge1</div>
+						<div class="panel-body">
+							<div id="gauge1"></div>
+						</div>
+					</div>
+					
+					<div class="panel panel-default panel-gauge">
+						<div class="panel-heading">Titre du gauge2</div>
+						<div class="panel-body">
+							<div id="gauge2"></div>
+						</div>
+					</div>
+					
+					<div class="panel panel-default panel-gauge">
+						<div class="panel-heading">Titre du gauge3</div>
+						<div class="panel-body">
+							<div id="gauge3"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 cadre" id="alert-content">
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior1 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">AWS</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">Zabbix</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">1</span>
+						</div>
+					</div>
+					
+					<div class="well well-prior2 dashboard-alert">
+						<div class="alert-logo">
+							<svg version="1.1" class="alert-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="0 0 60 60">
+								<text x="30px" y="30px">WPM</text>
+							</svg>
+						</div>
+						<div class="desc-alert">
+							<span>nom du Projet</span>
+							<span class="badge pull-right">3</span>
+						</div>
+					</div>
+					
+					
+				</div>
+				<div id="right-menu" class="col-lg-2 cadre">
+					<div id="panel-check" class="panel panel-default">
+						<div class="panel-heading">Check provider</div>
+						<div class="panel-body">
+							<div>
+								<span class="badge badge-ok"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span><span class="checker-label">Zabbix</span>
+							</div>
+							<div>
+								<span class="badge badge-ok"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span><span class="checker-label">WPM</span>
+							</div>
+							<div>
+								<span class="badge badge-nok"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span><span class="checker-label">Oraconsole</span>
+							</div>
+							<div>
+								<span class="badge badge-ok"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span><span class="checker-label">Nagios-SD</span>
+							</div>
+							<div>
+								<span class="badge badge-ok"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span><span class="checker-label">Typhon</span>
+							</div>
+							<div>
+								<span class="badge badge-ok"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></span><span class="checker-label">AWS</span>
+							</div>
+						</div>
+					</div>
+					
+					<div id="panel-chat" class="panel panel-default">
+						<div class="panel-heading">Chat</div>
+						<div class="panel-body">
+							<ul class="chat">
+								<div id="chat-content-message">
+									
+									<li class="clearfix">
+										<div class="chat-body clearfix">
+											<div class="header">
+												<strong class="primary-font">Glenn Inizan</strong> <small class="pull-right text-muted">
+													<span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+											</div>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											</p>
+										</div>
+									</li>
+									
+									<li class="clearfix">
+										<div class="chat-body clearfix">
+											<div class="header">
+												<strong class="primary-font">Service SI</strong> <small class="pull-right text-muted">
+													<span class="glyphicon glyphicon-time"></span>2 mins ago</small>
+											</div>
+											<p>
+												Curabitur bibendum ornare
+												dolor, quis ullamcorper ligula sodales.
+											</p>
+										</div>
+									</li>
+								</div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
