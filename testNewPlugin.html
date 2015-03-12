@@ -22,11 +22,11 @@
 		<script src="public/js/maquetteV1.js"></script>
 		
 		<style>
-			.number-gauge{	
+			.number-gauge{
+				display : inline-block;	
 				padding: 4px;
 				border-radius: 3px;
 				min-height: 20px;
-				margin-bottom: 20px;
 				background-color: #1c1e22;
 				border: 1px solid #0c0d0e;
 				border-radius: 4px;
@@ -36,12 +36,11 @@
 			
 			.inline{
 				display : inline-block;	
-				height : auto;
-				margin-bottom : 4px;
 			}
 			
 			.gauge-group{
 				font-size : 30px;
+				vertical-align : middle;
 			}
 			
 			.gauge-text{
@@ -53,16 +52,24 @@
 				height : 50px;
 				overflow : hidden;
 			}
+			
+			.separate{
+				font-size : 60px;
+			}
+			
 		</style>
 		
 		<script>
 			$(function() {
 				$('#test').on('click',function(){
-					console.log($('.old-value').length);
-					$('.old-value').animate(
+					
+					$('.curr-value').animate(
 						{
-							'margin-top' : '-=50'
-						}, 1000
+							'height' : '0px'
+						}, 1000, function(){
+							$(this).remove();
+							$(this).parent().find('.new-value').addClass('curr-value');
+						}
 					);
 				});
 			});
@@ -80,10 +87,9 @@
 								<div class="inline gauge-text">Ticket Traiter : </div>
 								<div class="inline gauge-group">
 									<div class="number-gauge">
-										<span class="old-value">15</span>
-										<br>
-										<span class="new-value">16</span>
-									</div> / <div class="number-gauge">50</div></div>
+										<div class="curr-value">15</div>
+										<div class="new-value">16</div>
+									</div><span class="separate"> / </span><div class="number-gauge">50</div></div>
 							</div>
 						</div>
 					</div>
