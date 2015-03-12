@@ -9,6 +9,7 @@
         <link href="/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
 		
 		<link href="/js/c3/c3.css" rel="stylesheet" type="text/css">
+		<link href="/css/chat.css" rel="stylesheet" type="text/css">
 		<link href="/css/slim-dashboard.css" rel="stylesheet" type="text/css">
 		
 		
@@ -34,7 +35,6 @@
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
-					console.log('glenn');
 					$('#chat-div').chat('addMessage',auteur,time,message);
 				});
 				
@@ -46,6 +46,12 @@
 	</head>
 	<body>
 		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 cadre">
+					<div id="gauge-number-div"></div>
+				</div>
+			</div>
+			
 			<div class="row">
 				<div id="right-menu" class="col-lg-4 cadre">
 					<div id="chat-div"></div>
