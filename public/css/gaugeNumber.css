@@ -1,0 +1,31 @@
+.number-gauge{
+	display : inline-block;	
+	padding: 4px;
+	border-radius: 3px;
+	min-height: 20px;
+	background-color: #1c1e22;
+	border: 1px solid #0c0d0e;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.inline{
+	display : inline-block;	
+}
+
+.gauge-group{
+	width : 100%;
+	text-align : center;
+	font-size : 30px;
+	vertical-align : middle;
+}
+
+.number-gauge{
+	height : 50px;
+	overflow : hidden;
+}
+
+.separate{
+	font-size : 60px;
+}

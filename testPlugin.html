@@ -1,0 +1,76 @@
+<!DOCTYPES html>
+<html>
+	<head>
+		<title>Claranet - Unified Live Dashboard -  [refreshed every 60 s]</title>
+            
+        <!-- Bootstrap core CSS -->
+        <link href="public/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap theme -->
+        <link href="public/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
+		
+		<link href="public/css/maquetteV1.css" rel="stylesheet" type="text/css">
+
+		
+		<meta name="Author" content="SI, Claranet FR">
+		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
+		<script src="public/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+
+		
+		<script src="public/js/gaugeNumber.js"></script>
+		
+		<style>
+			.number-gauge{
+				display : inline-block;	
+				padding: 4px;
+				border-radius: 3px;
+				min-height: 20px;
+				background-color: #1c1e22;
+				border: 1px solid #0c0d0e;
+				border-radius: 4px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+				box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+			}
+			
+			.inline{
+				display : inline-block;	
+			}
+			
+			.gauge-group{
+				width : 100%;
+				text-align : center;
+				font-size : 30px;
+				vertical-align : middle;
+			}
+			
+			.number-gauge{
+				height : 50px;
+				overflow : hidden;
+			}
+			
+			.separate{
+				font-size : 60px;
+			}
+		</style>
+		
+		<script>
+			$(function() {
+				$('#gauge-number-div').gaugeNumber();
+				$('#test').on('click',function(){
+					$('#gauge-number-div').gaugeNumber('update',15,50);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row" style="padding-left : 15px;">
+				<div class="col-lg-2 cadre menu-gauge">
+					<div id="gauge-number-div">
+					</div>
+				</div>
+				
+				<button class="btn" type="button" id="test">TEST</button>
+			</div>
+		</div>
+	</body>
+</html>
