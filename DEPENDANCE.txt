@@ -1,0 +1,5 @@
+npm install express
+npm install swig
+npm install body-parser
+npm install multer
+npm install socket.io

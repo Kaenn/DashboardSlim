@@ -24,6 +24,7 @@
 			$(this).data('gaugeNumber',gaugeNumber);
 		});
 		
+		return this;
 	};
 
 
@@ -35,26 +36,21 @@
 			
 			var pourcentage=calculPourcentage(that.parametres.operatorInit,that.parametres.operandInit);
 			
-			// Création du squelette du gauge
-			that.append(
-				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
-					$('<div>', { "class" : "panel-heading"}).html("Ticket Traité"),
-					$('<div>', { "class" : "panel-body"}).append([
-						$('<div>', {'class' : "inline gauge-group"}).append([
-							$('<div>',{'class' : "number-gauge operator"}).append(
-								$('<div>', {'class' : "curr-value"}).html(that.parametres.operatorInit)
-							),
-							$('<span>',{'class' : "separate"}).html(" / "),
-							$('<div>',{'class' : "number-gauge operand"}).append(
-								$('<div>', {'class' : "curr-value"}).html(that.parametres.operandInit)
-							)
-						]),
-						$('<div>', {'class' : "inline gauge-group"}).append(
-							$('<span>',{"class": "pourcentage"}).html(pourcentage+"%")
-						)
-					])
-				])
-			);
+			// CrÃ©ation du squelette du gauge
+			that.append([
+				$('<div>', {'class' : "inline gauge-group"}).append([
+					$('<div>',{'class' : "number-gauge operator"}).append(
+						$('<div>', {'class' : "curr-value"}).html(that.parametres.operatorInit)
+					),
+					$('<span>',{'class' : "separate"}).html(" / "),
+					$('<div>',{'class' : "number-gauge operand"}).append(
+						$('<div>', {'class' : "curr-value"}).html(that.parametres.operandInit)
+					)
+				]),
+				$('<div>', {'class' : "inline gauge-group"}).append(
+					$('<span>',{"class": "pourcentage"}).html(pourcentage+"%")
+				)
+			]);
 			
 			
 			return that;

@@ -10,7 +10,7 @@
 	$.fn.chat=function(methodOrOptions){
 		var methodArgs=arguments;	
 		this.each(function(){
-			var chat=$(this).data('chat6');
+			var chat=$(this).data('chat');
 			if (typeof chat === "undefined") {
 				// On initialise la classe
 				var options=methodOrOptions;
@@ -23,9 +23,10 @@
 				chat.doPublicMethod(method,methodArgs);
 			}
 			
-			$(this).data('chat6',chat);
+			$(this).data('chat',chat);
 		});
 		
+		return this;
 	};
 
 
@@ -39,26 +40,15 @@
 			// On vide le conteneur
 			that.html('');
 			
-			// Création du conteneur de message
+			// CrÃ©ation du conteneur de message
 			that._messageContent=$('<div></div>').addClass('chat-content-message');   
 			
-			// Création du squelette du chat
-			that.append(
-				$('<div></div>').addClass('panel panel-default no-radius').append(
-					[
-						$('<div></div>').addClass("panel-heading").html(that.parametres.title),
-						$('<div></div>').addClass("panel-body").append(
-							$('<ul></ul>').addClass('chat').css('height',that.parametres.height).append(that._messageContent)
-						)
-					]
-				)
-			);
+			// CrÃ©ation du squelette du chat
+			that.append($('<ul></ul>').addClass('chat').css('height',that.parametres.height).append(that._messageContent));
 			return that;
 		};
 		
 		var addMessage = function(auteur,time,message){
-			console.log('Glenn beau gosse ;) ====> '+auteur+" ## "+time+" ## "+message);
-		
 			var message_elem=$('<li></li>').addClass("clearfix").append(
 				$('<div></div').addClass('chat-body clearfix').append(
 					[
@@ -89,9 +79,6 @@
 		};
 		
 		that.doPublicMethod=function(method,args){
-			console.log('metho chat DEBUT args');
-			for(key in args) console.log('metho chat args => '+args[key]);
-			console.log('metho chat FIN args');
 			if ( methods[method] ) {
 				return methods[ method ].apply( that, Array.prototype.slice.call( args, 1 ));
 			} else{

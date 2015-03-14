@@ -1,8 +1,9 @@
 (function($){
 	// Parametre par defaut
 	var defauts={
-		"title": "Gauge",
-		"height" : '250px'
+		"title": "Titre du Gauge",
+		"height" : '250px',
+		"id" : "gauge"
 	};
 
 
@@ -36,21 +37,21 @@
 			// On vide le conteneur
 			that.html('');
 			
-			// Création du squelette du gauage
+			// Crï¿½ation du squelette du gauage
 			that.append(
 				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
-					$('<div>', { "class" : "panel-heading"}).html("Titre du gauge"),
+					$('<div>', { "class" : "panel-heading"}).html(that.parametres.titre),
 					$('<div>', { "class" : "panel-body"}).append(
-						$('<div>', { 'id' : 'gauge1' })
+						$('<div>', { 'id' : that.parametres.id })
 					),
 				])
 			);
 			
 			that.gauge = c3.generate({
-				bindto: '#gauge1',
+				bindto: '#'+that.parametres.id,
 				data: {
 					columns: [
-						['data', 61]
+						['data', that.parametres.value]
 					],
 					type: 'gauge'
 				},
@@ -75,7 +76,7 @@
 					}
 				},
 				size: {
-					height: 180
+					height: that.parametres.height
 				},
 				tooltip : {
 					show : false

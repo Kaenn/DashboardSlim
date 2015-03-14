@@ -32,7 +32,7 @@
 					$.getJSON( "./ajax/dashboardControl.ajax.php", 
 						{ action : "addMessage", message : message, auteur : auteur }, 
 						function( data ) {
-							console.log(data);
+							//console.log(data);
 						}
 					);
 				});
@@ -75,7 +75,7 @@
 					$.getJSON( "./ajax/dashboardControl.ajax.php", 
 						{ action : "updateGauge", val : valGauge }, 
 						function( data ) {
-							console.log(data);
+							//console.log(data);
 						}
 					);
 				}

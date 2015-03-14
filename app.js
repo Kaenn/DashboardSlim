@@ -28,42 +28,24 @@ app.get('/', function(req, res, next){
 	res.render('DashboardSlim');
 });
 
-app.post('/RemoteControle/add-message', function (req, res) {
-	console.log(req.body);
-	
-	if ('undefined' == typeof req.body.message) {
-		res.respond('[Chat Message must be defined]', 400);
-	} else if ('undefined' == typeof req.body.auteur) {
-		res.respond('[Chat Auteur must be defined]', 400);
-	} else {
-		io.sockets.emit('add-message', req.body.auteur,'12sec ago',req.body.message);
-		
-		res.respond("[success add message on chat]",200);
-	}
-});
-
-app.post('/RemoteControle/update-gauge', function (req, res) {
-	console.log(req.body);
-	
-	if ('undefined' == typeof req.body.val) {
-		res.respond('[Gauge Val must be defined]', 400);
-	} else {
-		io.sockets.emit('update-gauge', req.body.val);
-		
-		res.respond("[success update gauge]",200);
-	}
-});
-
-
 var server = require('http').Server(app);
 
 var io = require('socket.io')(server);
 server.listen(8333);
 
-/*setInterval(function () {
-    io.sockets.emit('add-message', 'ginizan','12sec ago','glenn ok');
- }, 5000);*/
- 
 io.sockets.on('connection', function(client) {
-  console.log('connecter');
+	console.log('connecter');
 });
+
+
+
+
+
+
+var chat=require('./plugin/chat');
+chat.router(app,io.sockets);
+
+var gauge=require('./plugin/gauge');
+gauge.router(app,io.sockets);
+
+
