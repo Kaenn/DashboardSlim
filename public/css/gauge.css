@@ -1,0 +1,13 @@
+.c3-chart-arc .c3-gauge-value{
+	fill : white;
+}
+
+.menu-gauge{
+	padding : 0px;
+}
+
+
+.panel-gauge .panel-heading, #panel-check .panel-heading, #panel-chat .panel-heading{
+	text-align : center;
+	font-weight : bold;
+}

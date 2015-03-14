@@ -1,0 +1,16 @@
+.badge-ok{
+	background-color : #5CB85C;
+}
+
+.badge-nok{
+	background-color : #D9534F;
+}
+
+.checker-label{
+	padding-left : 10px;
+}
+
+.panel-body > div{
+	padding-top : 5px;
+	padding-bottom : 5px;
+}
