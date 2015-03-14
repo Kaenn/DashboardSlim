@@ -25,6 +25,7 @@
 			$(this).data('gauge',gauge);
 		});
 		
+		return this;
 	};
 
 

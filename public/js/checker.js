@@ -23,6 +23,7 @@
 			$(this).data('checker',checker);
 		});
 		
+		return this;
 	};
 
 
