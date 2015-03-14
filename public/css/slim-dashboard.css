@@ -120,39 +120,11 @@ body{
 	border-radius : 0px;
 }
 
-.c3-chart-arc .c3-gauge-value{
-	fill : white;
-}
-
-.menu-gauge{
-	padding : 0px;
-}
 
 .no-radius{
 	border-radius : 0px;
 }
 
-.panel-gauge .panel-heading, #panel-check .panel-heading, #panel-chat .panel-heading{
-	text-align : center;
-	font-weight : bold;
-}
-
-#panel-check .badge-ok{
-	background-color : #5CB85C;
-}
-
-#panel-check .badge-nok{
-	background-color : #D9534F;
-}
-
-.checker-label{
-	padding-left : 10px;
-}
-
-#panel-check .panel-body > div{
-	padding-top : 5px;
-	padding-bottom : 5px;
-}
 
 svg.alert-logo text{
 	text-anchor : middle;

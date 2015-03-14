@@ -1,7 +1,8 @@
 (function($){
 	// Parametre par defaut
 	var defauts={
-		"isCheck" : true
+		"isCheck" : true,
+		"label" : "label"
 	};
 
 
@@ -37,12 +38,17 @@
 			that.html('');
 			
 			var checkClass="glyphicon-ok";
-			if(!that.parametres.isCheck) checkClass="glyphicon-remove";
+			var spanCheckClass="badge-ok";
+			if(!that.parametres.isCheck){
+				checkClass="glyphicon-remove";
+				spanCheckClass="badge-nok";
+			}
+			
 			
 			// Création du squelette du gauage
 			that.append(
 				$('<div>').append([
-					$('<span>', { "class" : "badge badge-ok","aria-hidden" : "true"}).append(
+					$('<span>', { "class" : "badge "+spanCheckClass,"aria-hidden" : "true"}).append(
 						$('<span>',{"class" : "glyphicon "+checkClass})
 					),
 					$('<span>', { "class" : "checker-label"}).html(that.parametres.label),
@@ -53,15 +59,17 @@
 		};
 		
 		var update = function(isCheck){
-			var checkClass="glyphicon-ok";
-			if(!isCheck) checkClass="glyphicon-remove";
-			
-			that.append(
-				$('<div>').append([
-					$('<span>', { "class" : "badge badge-ok","aria-hidden" : "true"}).append(checkSpan),
-					$('<span>', { "class" : "checker-label"}).html(that.parametres.label),
-				])
-			);
+			if(isCheck){
+				that.find('.badge').removeClass("badge-nok");
+				that.find('.badge').addClass("badge-ok");
+				that.find('.glyphicon').removeClass("glyphicon-remove");
+				that.find('.glyphicon').addClass("glyphicon-ok");
+			}else{
+				that.find('.badge').removeClass("badge-ok");
+				that.find('.badge').addClass("badge-nok");
+				that.find('.glyphicon').removeClass("glyphicon-ok");
+				that.find('.glyphicon').addClass("glyphicon-remove");
+			}
 			
 			return that;
 		};
