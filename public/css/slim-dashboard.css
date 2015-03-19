@@ -34,77 +34,7 @@ body{
 	padding-bottom : 40px;
 }
 
-#progress-legend{
-	padding-top : 15px;
-	padding-bottom : 15px;
-}
 
-.progress-bar-zabbix, #progress-legend .legend-zabbix .badge-legend{
-	background-image: none;
-	background-color: #5bc0de;
-}
-#progress-legend .legend-zabbix .label-legend{
-	color : #5bc0de;
-}
-
-.progress-bar-wpm, #progress-legend .legend-wpm .badge-legend{
-	background-image: none;
-	background-color: rgb(128,133,189);
-}
-#progress-legend .legend-wpm .label-legend{
-	color : rgb(128,133,189);
-}
-
-.progress-bar-oraconsole, #progress-legend .legend-oraconsole .badge-legend{
-	background-image: none;
-	background-color: #04519B;
-}
-#progress-legend .legend-oraconsole .label-legend{
-	color : #04519B;
-}
-
-.progress-bar-nagios-sd, #progress-legend .legend-nagios-sd .badge-legend{
-	background-image: none;
-	background-color: rgb(153,77,77);
-}
-#progress-legend .legend-nagios-sd .label-legend{
-	color : rgb(153,77,77);
-}
-
-.progress-bar-typhon, #progress-legend .legend-typhon .badge-legend{
-	background-image: none;
-	background-color: #FF9999;
-}
-#progress-legend .legend-typhon .label-legend{
-	color : #FF9999;
-}
-
-.progress-bar-aws, #progress-legend .legend-aws .badge-legend{
-	background-image: none;
-	background-color: #7B4F9D;
-}
-#progress-legend .legend-aws .label-legend{
-	color : #7B4F9D;
-}
-
-#progress-legend .label-legend{
-	font-weight : bold;
-}
-
-#progress-legend{
-	text-align : center;
-}
-
-
-#progress-legend *{
-	vertical-align : middle;
-}
-
-#progress-legend > div{
-	display : inline-block;
-	padding-left : 15px;
-	padding-right : 15px;
-}
 
 .well-prior1{
 	background-image : none;
