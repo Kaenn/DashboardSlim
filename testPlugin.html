@@ -7,7 +7,11 @@
         <link href="public/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap theme -->
         <link href="public/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
+		<link href="public/js/c3/c3.css" rel="stylesheet" type="text/css">
 		
+		<link href="public/css/checker.css" rel="stylesheet">
+		<link href="public/css/chat.css" rel="stylesheet">
+		<link href="public/css/gauge.css" rel="stylesheet">
 		<link href="public/css/maquetteV1.css" rel="stylesheet" type="text/css">
 
 		
@@ -15,61 +19,165 @@
 		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
 		<script src="public/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
 
+		<script src="public/js/d3/d3.min.js" charset="utf-8"></script>
+		<script src="public/js/c3/c3.min.js"></script>
 		
-		<script src="public/js/gaugeNumber.js"></script>
 		
 		<style>
-			.number-gauge{
-				display : inline-block;	
-				padding: 4px;
-				border-radius: 3px;
-				min-height: 20px;
-				background-color: #1c1e22;
-				border: 1px solid #0c0d0e;
-				border-radius: 4px;
-				-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-				box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+			.panel-checker .panel-body{
+				padding-left : 0px;
+				padding-right : 0px;
 			}
 			
-			.inline{
-				display : inline-block;	
+			.panel-checker >.list-group:first-child .list-group-item:first-child{
+				border-top-right-radius: 0px;
+  				border-top-left-radius: 0px;
 			}
 			
-			.gauge-group{
+			.panel-checker >.list-group:last-child .list-group-item:last-child{
+				border-bottom-right-radius: 0px;
+  				border-bottom-left-radius: 0px;
+			}
+			
+			
+			.panel-checker .checker-plugin{
 				width : 100%;
+				color : white;
+			}
+			
+			.panel-checker .checker-ok{
+				border:none;
+				background-color : #5CB85C;
+			}
+			
+			.panel-checker .checker-nok{
+				border:none;
+				background-color : #D9534F;
+			}
+			
+			.panel-checker .panel-heading{
+				background-color : #5CB85C;
+			}
+			
+			.panel-checker .panel-heading{
 				text-align : center;
-				font-size : 30px;
-				vertical-align : middle;
+				color : white;
+				text-size : 20px;
 			}
 			
-			.number-gauge{
-				height : 50px;
-				overflow : hidden;
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			.panel-chat{
+				padding : 10px;
+				background-color : white;
 			}
 			
-			.separate{
-				font-size : 60px;
+			.panel-chat .primary-font{
+				font-size : 20px;
+				color : #12b0c5;
+			}
+			.panel-chat p{
+				color : black;
+				font-weight : bold;
+				font-size : 13px;
 			}
 		</style>
 		
 		<script>
 			$(function() {
-				$('#gauge-number-div').gaugeNumber();
-				$('#test').on('click',function(){
-					$('#gauge-number-div').gaugeNumber('update',15,50);
-				});
+				
 			});
 		</script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row" style="padding-left : 15px;">
-				<div class="col-lg-2 cadre menu-gauge">
-					<div id="gauge-number-div">
+				<div class="col-lg-3 cadre">
+					<div id="contener-checker row">
+						<div class="panel panel-default panel-gauge">
+							<div id="gauge1">
+								<svg width="50" height="50" style="overflow: hidden;">
+									<rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+									<!-- <path d="M0,25 a25,25 0 1,0 25,-25 l0,10 a15,15 0 1,1 -15,15 z" fill="none" stroke="red"  transform="rotate(-135,25,25)"/> -->
+									<!-- 
+									Bx  = centreDuCamembert_x + (rayon * cos(angle)) 
+									By  = centreDuCamembert_y + (rayon * sin(angle)) 
+									 -->
+									<path d="M0,0 l25,25 l-25,0 a25,25 0 1,1 50,0z" fill="blue" stroke="black"/>
+									<path d="M0,0 l0,25 a25,25 0 1,1 25,25 l0,-10 a15,15 0 1,0 -15,-15 l-25,0 l0,-25 l50,0 l0,50 l-50,0z" fill="black" stroke="none"/>
+									<path d="M0,25 a25,25 0 1,1 25,25 l0,-10 a15,15 0 1,0 -15,-15z" fill="none" stroke="red"/>
+									
+								</svg>
+							</div>
+							<span class="title-gauge">Titre du gauge1</span>
+						</div>
 					</div>
+					
+					
 				</div>
-				
-				<button class="btn" type="button" id="test">TEST</button>
+			
+				<div class="col-lg-6 cadre">
+				</div>
+			
+				<div class="col-lg-3 cadre">
+					<!-- 
+					<div id="contener-checker row">
+						<div class="panel panel-default panel-checker">
+							<ul class="list-group checker-plugin">
+								<li class="list-group-item checker-ok">
+									<span class="glyphicon glyphicon-ok"></span>
+									<span class="checker-label">Zabbix</span>
+								</li>
+								<li class="list-group-item checker-nok">
+									<span class="glyphicon glyphicon-remove"></span>
+									<span class="checker-label">WPM</span>
+								</li>
+								<li class="list-group-item checker-ok">
+									<span class="glyphicon glyphicon-ok"></span>
+									<span class="checker-label">Nagios-SD</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div id="contener-checker row">
+						<div class="panel panel-default panel-chat">
+							<ul class="chat" style="height: 600px;">
+								<div class="chat-content-message">
+									<li class="clearfix">
+										<div class="chat-body clearfix">
+											<div class="header">
+												<strong class="primary-font">ginizan</strong>
+												<small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>12sec ago</small>
+											</div>
+											<p>Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.</p>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="chat-body clearfix">
+											<div class="header">
+												<strong class="primary-font">test2</strong>
+												<small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>12sec ago</small>
+											</div>
+											<p>Proinde concepta rabie saeviore, quam desperatio incendebat et fames, amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae efferebantur, quam comes tuebatur Castricius tresque legiones bellicis sudoribus induratae.</p>
+										</div>
+									</li>
+								</div>
+							</ul>
+						</div>
+					</div>
+					 -->
+				</div>
 			</div>
 		</div>
 	</body>
