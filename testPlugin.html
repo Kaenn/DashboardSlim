@@ -91,32 +91,90 @@
 				font-weight : bold;
 				font-size : 13px;
 			}
+			
+			
+			
+			
+			
+			
+			.panel-gauge svg text{
+				text-anchor : middle;
+				font-size : 12px;
+			}
+			
+			.panel-gauge svg .font-color{
+				fill : rgb(156,66,116);
+				stroke : none;
+			}
+			
+			.panel-gauge svg .value-color{
+				fill : white;
+				stroke : none;
+			}
+			
+			.panel-gauge svg .gauge-text-pourcent{
+				font-size : 10px;
+			}
+			
+			.panel-gauge {
+				text-align : center;
+				background-color : rgb(156,66,116);;
+			}
+			
+			.panel-gauge .gauge-graph{
+				width : 300px;
+				height : 300px;
+			}
 		</style>
 		
 		<script>
 			$(function() {
+				function generatePathGauge(pourcentage){
+					
+					var angle=parseInt(pourcentage*(360-90)/100);
+					
+					var pathFirstTier="M0,0 l25,0 a25,25 0 0,0 -25,-25z";
+					var pathSecondTier="M25,0 a25,25 0 0,0 -50,0z";
+					var pathLastTier="M0,0 l25,0 a25,25 0 1,0 -25,25z";
+					
+					if(angle<90){
+						$(".gauge-pourcent path").attr("d",pathFirstTier);
+					}else{
+						if(angle<180){
+							$(".gauge-pourcent path").attr("d",pathSecondTier);
+						}else{
+							$(".gauge-pourcent path").attr("d",pathLastTier);
+						}
+					}
+					$(".gauge-pourcent").attr("transform","rotate("+angle+",0,0)");
+				}
+			
 				
+				$("#test").on("click",function(){
+					generatePathGauge($("#test-input").val());
+				});
 			});
 		</script>
 	</head>
 	<body>
 		<div class="container">
+			<button id="test" >Test</button><input id="test-input" />
 			<div class="row" style="padding-left : 15px;">
 				<div class="col-lg-3 cadre">
 					<div id="contener-checker row">
 						<div class="panel panel-default panel-gauge">
-							<div id="gauge1">
-								<svg width="50" height="50" style="overflow: hidden;">
-									<rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-									<!-- <path d="M0,25 a25,25 0 1,0 25,-25 l0,10 a15,15 0 1,1 -15,15 z" fill="none" stroke="red"  transform="rotate(-135,25,25)"/> -->
-									<!-- 
-									Bx  = centreDuCamembert_x + (rayon * cos(angle)) 
-									By  = centreDuCamembert_y + (rayon * sin(angle)) 
-									 -->
-									<path d="M0,0 l25,25 l-25,0 a25,25 0 1,1 50,0z" fill="blue" stroke="black"/>
-									<path d="M0,0 l0,25 a25,25 0 1,1 25,25 l0,-10 a15,15 0 1,0 -15,-15 l-25,0 l0,-25 l50,0 l0,50 l-50,0z" fill="black" stroke="none"/>
-									<path d="M0,25 a25,25 0 1,1 25,25 l0,-10 a15,15 0 1,0 -15,-15z" fill="none" stroke="red"/>
-									
+							<div class="gauge-graph">
+								<svg width="100%" height="100%" viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet">
+									<g transform="translate(25,25)">
+										<g transform="rotate(135,0,0)">
+											<g transform="rotate(0,0,0)" class="gauge-pourcent">
+												<path class="value-color" d="M0,0 l25,0 a25,25 0 0,0 -25,-25z"/>
+											</g>
+											<path class="font-color" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z l25,0 l0,-50 l-100,0 l0,100 l100,0 l0,-50z"/>
+											
+										</g>
+									</g>
+									<text x="25" y="28" fill="white" class="gauge-text-pourcent">100%</text>
 								</svg>
 							</div>
 							<span class="title-gauge">Titre du gauge1</span>
