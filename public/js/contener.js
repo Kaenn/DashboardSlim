@@ -1,8 +1,9 @@
 (function($){
 	// Parametre par defaut
 	var defauts={
-		'titre' : [],
-		'content' : []
+		'titre' : null,
+		'content' : [],
+		'plugin' : ""
 	};
 
 
@@ -34,12 +35,17 @@
 			// On vide le conteneur
 			that.html('');
 			
+			var contenerSquelette=[];
+			
+			var classPlugin="";
+			if(this.parametres.plugin != "") classPlugin=" panel-"+this.parametres.plugin;
+			// On affiche le titre si il en a un
+			if(that.parametres.titre != null) contenerSquelette.push($('<div>', { "class" : "panel-heading"}).html(that.parametres.titre));
+			contenerSquelette.push($('<div>', { "class" : "panel-body"+classPlugin}).append(that.parametres.content));
+			
 			// Création du squelette du gauge
 			that.append(
-				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
-					$('<div>', { "class" : "panel-heading"}).html(that.parametres.titre),
-					$('<div>', { "class" : "panel-body"}).append(that.parametres.content)
-				])
+				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append(contenerSquelette)
 			);
 			
 			

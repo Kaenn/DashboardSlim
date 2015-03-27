@@ -47,7 +47,11 @@
 			
 			// Création du squelette du gauage
 			that.append(
-				$('<div>').append([
+				$("<span>", {"class" : "glyphicon "+checkClass}),
+				$("<span>", {"class" : "checker-label"}).text()
+					
+					
+					$('<div>').append([
 					$('<span>', { "class" : "badge "+spanCheckClass,"aria-hidden" : "true"}).append(
 						$('<span>',{"class" : "glyphicon "+checkClass})
 					),
