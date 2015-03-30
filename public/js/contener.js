@@ -38,7 +38,7 @@
 			var contenerSquelette=[];
 			
 			var classPlugin="";
-			if(this.parametres.plugin != "") classPlugin=" panel-"+this.parametres.plugin;
+			if(that.parametres.plugin != "") classPlugin=" panel-"+that.parametres.plugin;
 			// On affiche le titre si il en a un
 			if(that.parametres.titre != null) contenerSquelette.push($('<div>', { "class" : "panel-heading"}).html(that.parametres.titre));
 			contenerSquelette.push($('<div>', { "class" : "panel-body"+classPlugin}).append(that.parametres.content));

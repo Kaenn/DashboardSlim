@@ -38,26 +38,20 @@
 			that.html('');
 			
 			var checkClass="glyphicon-ok";
-			var spanCheckClass="badge-ok";
+			
 			if(!that.parametres.isCheck){
 				checkClass="glyphicon-remove";
-				spanCheckClass="badge-nok";
+				that.removeClass("checker-ok").addClass("checker-nok");
+			}else{
+				that.removeClass("checker-nok").addClass("checker-ok");
 			}
 			
 			
 			// Création du squelette du gauage
 			that.append(
 				$("<span>", {"class" : "glyphicon "+checkClass}),
-				$("<span>", {"class" : "checker-label"}).text()
-					
-					
-					$('<div>').append([
-					$('<span>', { "class" : "badge "+spanCheckClass,"aria-hidden" : "true"}).append(
-						$('<span>',{"class" : "glyphicon "+checkClass})
-					),
-					$('<span>', { "class" : "checker-label"}).html(that.parametres.label),
-				])
-			);
+				$("<span>", {"class" : "checker-label"}).text(that.parametres.label)
+			).addClass("list-group-item");
 			
 			return that;
 		};
