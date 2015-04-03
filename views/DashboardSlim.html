@@ -58,14 +58,11 @@
 					]
 				});
 				
-				$('#contener-chat').contener({
-					'titre' : "Chat",
-					'content' : $('<div>',{"id":"chat-div"}).chat({'height' : '600px'})
-				});
+				$('#contener-chat').chat({'height' : '600px'});
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
-					$('#chat-div').chat('addMessage',auteur,time,message);
+					$('#contener-chat').chat('addMessage',auteur,time,message);
 				});
 				
 				/*socket.on('update-gauge', function(val) {
@@ -76,6 +73,12 @@
 	</head>
 	<body>
 		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 cadre">
+					<div id="contener-chat"></div>
+				</div>
+			</div>
+			
 			<div class="row">
 				<div class="col-lg-4 cadre">
 					<div id="contener-checker"></div>
@@ -107,11 +110,7 @@
 			</div>
 			
 			
-			<div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="contener-chat"></div>
-				</div>
-			</div>
+			
 		</div>
 	</body>
 </html>
