@@ -38,14 +38,14 @@
 				$('#progressBar-div').progressBar();
 				
 				$('#contener-checker').contenerChecker({
-					'content' : [
-						$('<div>',{'id' : "zabbix-div"}).checker({"label" : "Zabbix", "isCheck" : true}),
-						$('<div>').checker({"label" : "WPM", "isCheck" : true}),
-						$('<div>').checker({"label" : "Oraconsole", "isCheck" : true}),
-						$('<div>',{'id' : "nagios-sd-div"}).checker({"label" : "Nagios-SD", "isCheck" : false}),
-						$('<div>').checker({"label" : "Typhon", "isCheck" : true}),
-						$('<div>').checker({"label" : "AWS", "isCheck" : false})
-					]
+					'checkList' : {
+						"Zabbix" : true,
+						"WPM" : false,
+						"Oraconsole" : true,
+						"Nagios-SD" : false,
+						"Typhon" : true,
+						"AWS" : false
+					}
 				});
 				
 				$('#div-gauge').gauge({"id" : "gauge1", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});

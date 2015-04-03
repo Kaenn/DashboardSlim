@@ -1,6 +1,7 @@
 (function($){
 	// Parametre par defaut
 	var defauts={
+		title : "glenn",
 		operandInit : 0,
 		operatorInit : 0
 	};
@@ -32,7 +33,7 @@
 	$.gaugeNumber=function(that,methodOrOptions){
 		var initialize = function(){
 			// On vide le conteneur
-			that.html('');
+			that.empty();
 			
 			var pourcentage=calculPourcentage(that.parametres.operatorInit,that.parametres.operandInit);
 			
@@ -49,8 +50,14 @@
 				]),
 				$('<div>', {'class' : "inline gauge-group"}).append(
 					$('<span>',{"class": "pourcentage"}).html(pourcentage+"%")
+				),
+				$("<div>",{ "class" : "content-title"}).append(
+					$("<div>").append([
+					    $("<div>",{ "class" : "background-title"}).html("<svg width='100%' height='100%' > <rect x='0px' y='0px' width='100%' height='100%'></rect></svg>"),
+					    $("<div>",{ "class" : "title"}).html(that.parametres.title)
+					]).append()
 				)
-			]);
+			]).addClass("panel-gaugeNumber");
 			
 			
 			return that;

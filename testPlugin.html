@@ -11,7 +11,7 @@
 		
 		<link href="public/css/checker.css" rel="stylesheet">
 		<link href="public/css/chat.css" rel="stylesheet">
-		<link href="public/css/gauge.css" rel="stylesheet">
+		<link href="public/css/gaugeNumber.css" rel="stylesheet">
 		<link href="public/css/maquetteV1.css" rel="stylesheet" type="text/css">
 
 		
@@ -22,80 +22,14 @@
 		<script src="public/js/d3/d3.min.js" charset="utf-8"></script>
 		<script src="public/js/c3/c3.min.js"></script>
 		
-		
-		<style>
-			.panel-checker .panel-body{
-				padding-left : 0px;
-				padding-right : 0px;
-			}
-			
-			.panel-checker >.list-group:first-child .list-group-item:first-child{
-				border-top-right-radius: 0px;
-  				border-top-left-radius: 0px;
-			}
-			
-			.panel-checker >.list-group:last-child .list-group-item:last-child{
-				border-bottom-right-radius: 0px;
-  				border-bottom-left-radius: 0px;
-			}
-			
-			
-			.panel-checker .checker-plugin{
-				width : 100%;
-				color : white;
-			}
-			
-			.panel-checker .checker-ok{
-				border:none;
-				background-color : #5CB85C;
-			}
-			
-			.panel-checker .checker-nok{
-				border:none;
-				background-color : #D9534F;
-			}
-			
-			.panel-checker .panel-heading{
-				background-color : #5CB85C;
-			}
-			
-			.panel-checker .panel-heading{
-				text-align : center;
-				color : white;
-				text-size : 20px;
-			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			.panel-chat{
-				padding : 10px;
-				background-color : white;
-			}
-			
-			.panel-chat .primary-font{
-				font-size : 20px;
-				color : #12b0c5;
-			}
-			.panel-chat p{
-				color : black;
-				font-weight : bold;
-				font-size : 13px;
-			}
-		</style>
-		
+		<script type="text/javascript" src="public/js/gaugeNumber.js"></script>
 		<script>
 			$(function() {
+				$("#contener-gauge-number").gaugeNumber();
 				
+				setTimeout(function(){
+					$("#contener-gauge-number").gaugeNumber("update",40,80);
+				},5000);
 			});
 		</script>
 	</head>
@@ -103,80 +37,9 @@
 		<div class="container">
 			<div class="row" style="padding-left : 15px;">
 				<div class="col-lg-3 cadre">
-					<div id="contener-checker row">
-						<div class="panel panel-default panel-gauge">
-							<div id="gauge1">
-								<svg width="50" height="50" style="overflow: hidden;">
-									<rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-									<!-- <path d="M0,25 a25,25 0 1,0 25,-25 l0,10 a15,15 0 1,1 -15,15 z" fill="none" stroke="red"  transform="rotate(-135,25,25)"/> -->
-									<!-- 
-									Bx  = centreDuCamembert_x + (rayon * cos(angle)) 
-									By  = centreDuCamembert_y + (rayon * sin(angle)) 
-									 -->
-									<path d="M0,0 l25,25 l-25,0 a25,25 0 1,1 50,0z" fill="blue" stroke="black"/>
-									<path d="M0,0 l0,25 a25,25 0 1,1 25,25 l0,-10 a15,15 0 1,0 -15,-15 l-25,0 l0,-25 l50,0 l0,50 l-50,0z" fill="black" stroke="none"/>
-									<path d="M0,25 a25,25 0 1,1 25,25 l0,-10 a15,15 0 1,0 -15,-15z" fill="none" stroke="red"/>
-									
-								</svg>
-							</div>
-							<span class="title-gauge">Titre du gauge1</span>
-						</div>
+					<div id="contener-gauge-number">
+						
 					</div>
-					
-					
-				</div>
-			
-				<div class="col-lg-6 cadre">
-				</div>
-			
-				<div class="col-lg-3 cadre">
-					<!-- 
-					<div id="contener-checker row">
-						<div class="panel panel-default panel-checker">
-							<ul class="list-group checker-plugin">
-								<li class="list-group-item checker-ok">
-									<span class="glyphicon glyphicon-ok"></span>
-									<span class="checker-label">Zabbix</span>
-								</li>
-								<li class="list-group-item checker-nok">
-									<span class="glyphicon glyphicon-remove"></span>
-									<span class="checker-label">WPM</span>
-								</li>
-								<li class="list-group-item checker-ok">
-									<span class="glyphicon glyphicon-ok"></span>
-									<span class="checker-label">Nagios-SD</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-					
-					<div id="contener-checker row">
-						<div class="panel panel-default panel-chat">
-							<ul class="chat" style="height: 600px;">
-								<div class="chat-content-message">
-									<li class="clearfix">
-										<div class="chat-body clearfix">
-											<div class="header">
-												<strong class="primary-font">ginizan</strong>
-												<small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>12sec ago</small>
-											</div>
-											<p>Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.</p>
-										</div>
-									</li>
-									<li class="clearfix">
-										<div class="chat-body clearfix">
-											<div class="header">
-												<strong class="primary-font">test2</strong>
-												<small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>12sec ago</small>
-											</div>
-											<p>Proinde concepta rabie saeviore, quam desperatio incendebat et fames, amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae efferebantur, quam comes tuebatur Castricius tresque legiones bellicis sudoribus induratae.</p>
-										</div>
-									</li>
-								</div>
-							</ul>
-						</div>
-					</div>
-					 -->
 				</div>
 			</div>
 		</div>
