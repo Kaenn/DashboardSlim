@@ -1,3 +1,10 @@
+.panel-checker{
+	padding : 0px;
+}
+.panel-checker .list-group{
+	margin-bottom : 0px;	
+}
+
 .checker-label{
 	padding-left : 10px;
 }
