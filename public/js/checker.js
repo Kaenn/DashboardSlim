@@ -58,13 +58,13 @@
 		
 		var update = function(isCheck){
 			if(isCheck){
-				that.find('.badge').removeClass("badge-nok");
-				that.find('.badge').addClass("badge-ok");
+				that.removeClass("checker-nok");
+				that.addClass("checker-ok");
 				that.find('.glyphicon').removeClass("glyphicon-remove");
 				that.find('.glyphicon').addClass("glyphicon-ok");
 			}else{
-				that.find('.badge').removeClass("badge-ok");
-				that.find('.badge').addClass("badge-nok");
+				that.removeClass("checker-ok");
+				that.addClass("checker-nok");
 				that.find('.glyphicon').removeClass("glyphicon-ok");
 				that.find('.glyphicon').addClass("glyphicon-remove");
 			}

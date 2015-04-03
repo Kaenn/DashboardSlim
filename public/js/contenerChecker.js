@@ -2,7 +2,7 @@
 	// Parametre par defaut
 	var defauts={
 		'titre' : null,
-		'content' : []
+		'checkList' : {}
 	};
 
 
@@ -31,24 +31,27 @@
 
 	$.contenerChecker=function(that,methodOrOptions){
 		var initialize = function(){
+			var checkerList=[];
+			
+			for(var label in that.parametres.checkList){
+				checkerList.push($('<li>',{'class' : "checker-"+label}).checker({"label" : label, "isCheck" : that.parametres.checkList[label]}));
+			}
+			
 			that.contener({
 				'content' :
-					$("<ul>", {"class" : "list-group checker-plugin"}).append([
-						$('<li>',{'id' : "zabbix-div"}).checker({"label" : "Zabbix", "isCheck" : true}),
-						$('<li>').checker({"label" : "WPM", "isCheck" : true}),
-						$('<li>').checker({"label" : "Oraconsole", "isCheck" : true}),
-						$('<li>',{'id' : "nagios-sd-div"}).checker({"label" : "Nagios-SD", "isCheck" : false}),
-						$('<li>').checker({"label" : "Typhon", "isCheck" : true}),
-						$('<li>').checker({"label" : "AWS", "isCheck" : false})
-					]),
+					$("<ul>", {"class" : "list-group checker-plugin"}).append(checkerList),
 				'plugin' : "checker"
 			});
 			
 			return that;
 		};
 		
+		var update=function(label,isCheck){
+			that.find(".checker-plugin .checker-"+label).checker("update",isCheck);
+		};
+		
 		var methods={
-			//update : function(operator,operand){ return update(operator,operand)}
+			update : function(label,isCheck){ return update(label,isCheck)}
 		};
 		
 		that.doPublicMethod=function(method,args){
