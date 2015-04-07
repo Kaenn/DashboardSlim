@@ -53,12 +53,12 @@
 				),
 				$("<div>",{ "class" : "content-title"}).append(
 					$("<div>").append([
-					    $("<div>",{ "class" : "background-title"}).html("<svg width='100%' height='100%' > <rect x='0px' y='0px' width='100%' height='100%'></rect></svg>"),
+					    $("<div>",{ "class" : "background-title"}).html(that.parametres.title),
 					    $("<div>",{ "class" : "title"}).html(that.parametres.title)
 					]).append()
 				)
 			]).addClass("panel-gaugeNumber");
-			
+			// ToDo : Amélioré le background opacity ( opacifi aussi le texte . Pas top...)
 			
 			return that;
 		};
