@@ -35,9 +35,9 @@
 		<script src="/socket.io/socket.io.js"></script>
         <script>
 			$(function(){
-				$('#progressBar-div').progressBar();
+				$('#div-progressBar').progressBar();
 				
-				$('#contener-checker').contenerChecker({
+				$('#div-checker').contenerChecker({
 					'checkList' : {
 						"Zabbix" : true,
 						"WPM" : false,
@@ -50,19 +50,13 @@
 				
 				$('#div-gauge').gauge({"id" : "gauge1", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
 				
-				$('#contener-gauge-number').contener({
-					'titre' : "Statistique Jours",
-					'content' : [
-						$('<div>').gaugeNumber(),
-						$('<div>').gaugeNumber()
-					]
-				});
+				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
 				
-				$('#contener-chat').chat({'height' : '600px'});
+				$('#div-chat').chat({'height' : '600px'});
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
-					$('#contener-chat').chat('addMessage',auteur,time,message);
+					$('#div-chat').chat('addMessage',auteur,time,message);
 				});
 				
 				/*socket.on('update-gauge', function(val) {
@@ -75,25 +69,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 cadre">
-					<div id="contener-chat"></div>
+					<div id="div-chat"></div>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-lg-4 cadre">
-					<div id="contener-checker"></div>
+					<div id="div-checker"></div>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-lg-12 ">
-					<div id="progressBar-div"></div>
+					<div id="div-progressBar"></div>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-lg-4 cadre">
-					<div id="contener-checker"></div>
+					<div id="div-checker"></div>
 				</div>
 			</div>
 		
@@ -105,7 +99,7 @@
 
 			<div class="row">
 				<div class="col-lg-4 cadre">
-					<div id="contener-gauge-number"></div>
+					<div id="div-gauge-number"></div>
 				</div>
 			</div>
 			
