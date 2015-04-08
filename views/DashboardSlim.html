@@ -25,6 +25,7 @@
 		<script src="/js/slim-dashboard.js"></script>
 		<script src="/js/contener.js"></script>
 		<script src="/js/contenerChecker.js"></script>
+		<script src="/js/contenerAlert.js"></script>
 		<script src="/js/chat.js"></script>
 		<script src="/js/gauge.js"></script>
 		<script src="/js/gaugeNumber.js"></script>
@@ -53,6 +54,8 @@
 				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
 				
 				$('#div-chat').chat({'height' : '600px'});
+				
+				$('#div-alerts').contenerAlert({'alerts' : [{outil:"Zabbix",projet:"Claranet SI",nb_occur:"2"}]});
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
@@ -67,6 +70,11 @@
 	</head>
 	<body>
 		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 cadre">
+					<div id="div-alerts"></div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-4 cadre">
 					<div id="div-chat"></div>
