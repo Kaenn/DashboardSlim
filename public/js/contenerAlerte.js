@@ -37,10 +37,11 @@
 			
 			
 			
-			for(var alerte_key in that.parametres.alertes){
-				var alerte=that.parametres.alertes[alerte_key];
+			for(var id_alerte in that.parametres.alertes){
+				var alerte=that.parametres.alertes[id_alerte];
 				that.append(
 					$("<div>").alerte({
+						"id" : id_alerte,
 						"outil" : alerte["outil"],
 						"projet" : alerte["projet"],
 						"nb_occur" : alerte["nb_occur"],
@@ -49,11 +50,19 @@
 				);
 			}
 			
+			that.find(".panel-alerte").show(500);
+			
 			return that;
 		};
 		
+		var remove=function(){
+			that.find(".panel-alerte[alerte-id='1501']").alerte("update","WPM","glenn",55,2);
+		}
+		
 		// Liste des methodes externe
-		var methods={};
+		var methods={
+			remove : function(){ return remove()}
+		};
 		
 		that.doPublicMethod=function(method,args){
 			if ( methods[method] ) {
