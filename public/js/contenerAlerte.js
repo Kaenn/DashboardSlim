@@ -40,17 +40,12 @@
 			for(var alerte_key in that.parametres.alertes){
 				var alerte=that.parametres.alertes[alerte_key];
 				that.append(
-					$("<div>",{class:"well well-prior1 dashboard-alerte"}).append([
-						$("<div>",{class:"alerte-logo"}).html(
-							'<svg version="1.1" class="alerte-logo" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height:"150px" viewBox="0 0 60 60" >'+
-								'<text x="30px" y="30px">'+alerte["outil"]+'</text>'+
-							'</svg>'
-						),
-						$("<div>",{class:"desc-alerte"}).append([
-						    $("<span>").text(alerte["projet"]),
-						    $("<span>",{class:"badge pull-right"}).text(alerte["nb_occur"])
-						])
-					])	
+					$("<div>").alerte({
+						"outil" : alerte["outil"],
+						"projet" : alerte["projet"],
+						"nb_occur" : alerte["nb_occur"],
+						"priorite" : alerte["priorite"]
+					})
 				);
 			}
 			
