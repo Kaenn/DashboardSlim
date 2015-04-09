@@ -1,0 +1,57 @@
+.contener-alerte .alerte{
+	border : 1px solid red;
+	padding : 2px;
+	height : 75px;
+}
+
+.contener-alerte .well{
+	padding : 0px;
+	height : 150px;
+	width : 150px;
+	border : 2px solid white;
+	
+	display : inline-block;
+	margin : 10px;
+}
+
+.contener-alerte .well-prior1 .badge{
+	background-color : #D9534F;
+}
+
+.contener-alerte .well-prior2 .badge{
+	background-color : #F1CD5F;
+}
+
+.contener-alerte .row > div{
+	padding : 0px;
+}
+
+
+.contener-alerte svg.alerte-logo text{
+	text-anchor : middle;
+	baseline-shift:-0.5ex;
+	font-family : Arial;
+	fill : white;
+	stroke : white;
+	stroke-width : 1px;
+}
+
+
+
+.contener-alerte .dashboard-alerte{
+	position : relative;
+}
+
+.contener-alerte .alerte-logo{
+	position : absolute;
+}
+
+.contener-alerte .desc-alerte{
+	padding-left : 10px;
+	padding-right : 10px;
+	position : absolute;
+	bottom : 20px;
+	width : 100%;
+	font-weight : bold;
+	overflow : hidden;
+}
