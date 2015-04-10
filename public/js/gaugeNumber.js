@@ -1,6 +1,7 @@
 (function($){
 	// Parametre par defaut
 	var defauts={
+		title : "glenn",
 		operandInit : 0,
 		operatorInit : 0
 	};
@@ -32,7 +33,7 @@
 	$.gaugeNumber=function(that,methodOrOptions){
 		var initialize = function(){
 			// On vide le conteneur
-			that.html('');
+			that.empty();
 			
 			var pourcentage=calculPourcentage(that.parametres.operatorInit,that.parametres.operandInit);
 			
@@ -49,9 +50,15 @@
 				]),
 				$('<div>', {'class' : "inline gauge-group"}).append(
 					$('<span>',{"class": "pourcentage"}).html(pourcentage+"%")
+				),
+				$("<div>",{ "class" : "content-title"}).append(
+					$("<div>").append([
+					    $("<div>",{ "class" : "background-title"}).html(that.parametres.title),
+					    $("<div>",{ "class" : "title"}).html(that.parametres.title)
+					]).append()
 				)
-			]);
-			
+			]).addClass("panel-gaugeNumber");
+			// ToDo : Amélioré le background opacity ( opacifi aussi le texte . Pas top...)
 			
 			return that;
 		};

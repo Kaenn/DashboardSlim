@@ -11,9 +11,9 @@
 		
 		<link href="public/css/checker.css" rel="stylesheet">
 		<link href="public/css/chat.css" rel="stylesheet">
-		<link href="public/css/gauge.css" rel="stylesheet">
+		<link href="public/css/gaugeNumber.css" rel="stylesheet">
 		<link href="public/css/maquetteV1.css" rel="stylesheet" type="text/css">
-
+		<link href="public/css/alerte.css" rel="stylesheet" type="text/css">
 		
 		<meta name="Author" content="SI, Claranet FR">
 		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
@@ -23,6 +23,7 @@
 		<script src="public/js/c3/c3.min.js"></script>
 		<script src="public/js/gauge2.js"></script>
 		
+<<<<<<< HEAD
 		
 		<style>
 			.panel-checker .panel-body{
@@ -132,9 +133,14 @@
 				opacity : 0.3;
 			}
 		</style>
+=======
+		<script type="text/javascript" src="public/js/contenerAlerte.js"></script>
+		<script type="text/javascript" src="public/js/alerte.js"></script>
+>>>>>>> branch 'master' of ssh://git@github.com/Kaenn/DashboardSlim.git
 		
 		<script>
 			$(function() {
+<<<<<<< HEAD
 				/*function generatePathGauge(pourcentage){
 					
 					var angle=parseInt(pourcentage*(360-90)/100);
@@ -159,13 +165,38 @@
 				$("#test").on("click",function(){
 					$("#div-gauge2").gauge2("update",$("#test-input").val());
 				});
+=======
+				$("#contener").contenerAlerte({'alertes' : {
+				                                            "1500" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1501" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1502" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1503" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1504" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"2"},
+				                                            "1505" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1506" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1507" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1508" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"1"},
+				                                            "1509" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"2",priorite:"2"},
+				}});
+				/*
+				setTimeout(function(){
+					$("#contener-gauge-number").gaugeNumber("update",40,80);
+				},5000);*/
+>>>>>>> branch 'master' of ssh://git@github.com/Kaenn/DashboardSlim.git
 				
+<<<<<<< HEAD
 				$("#div-gauge2").gauge2();
+=======
+				$("#test").on("click",function(){
+					$("#contener").contenerAlerte("remove");
+				});
+>>>>>>> branch 'master' of ssh://git@github.com/Kaenn/DashboardSlim.git
 			});
 		</script>
 	</head>
 	<body>
 		<div class="container">
+<<<<<<< HEAD
 			<button id="test" >Test</button><input id="test-input" />
 			
 			
@@ -174,7 +205,11 @@
 			</div>
 			
 			
+=======
+			<button id="test" >Test</button>
+>>>>>>> branch 'master' of ssh://git@github.com/Kaenn/DashboardSlim.git
 			<div class="row" style="padding-left : 15px;">
+<<<<<<< HEAD
 				<div class="col-lg-3 cadre">
 					<div id="contener-checker row">
 						<div class="panel panel-default panel-gauge">
@@ -195,62 +230,12 @@
 							</div>
 							<span class="title-gauge">Titre du gauge1</span>
 						</div>
+=======
+				<div class="col-lg-12 cadre">
+					<div id="contener">
+						
+>>>>>>> branch 'master' of ssh://git@github.com/Kaenn/DashboardSlim.git
 					</div>
-					
-					
-				</div>
-			
-				<div class="col-lg-6 cadre">
-				</div>
-			
-				<div class="col-lg-3 cadre">
-					<!-- 
-					<div id="contener-checker row">
-						<div class="panel panel-default panel-checker">
-							<ul class="list-group checker-plugin">
-								<li class="list-group-item checker-ok">
-									<span class="glyphicon glyphicon-ok"></span>
-									<span class="checker-label">Zabbix</span>
-								</li>
-								<li class="list-group-item checker-nok">
-									<span class="glyphicon glyphicon-remove"></span>
-									<span class="checker-label">WPM</span>
-								</li>
-								<li class="list-group-item checker-ok">
-									<span class="glyphicon glyphicon-ok"></span>
-									<span class="checker-label">Nagios-SD</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-					
-					<div id="contener-checker row">
-						<div class="panel panel-default panel-chat">
-							<ul class="chat" style="height: 600px;">
-								<div class="chat-content-message">
-									<li class="clearfix">
-										<div class="chat-body clearfix">
-											<div class="header">
-												<strong class="primary-font">ginizan</strong>
-												<small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>12sec ago</small>
-											</div>
-											<p>Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.</p>
-										</div>
-									</li>
-									<li class="clearfix">
-										<div class="chat-body clearfix">
-											<div class="header">
-												<strong class="primary-font">test2</strong>
-												<small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span>12sec ago</small>
-											</div>
-											<p>Proinde concepta rabie saeviore, quam desperatio incendebat et fames, amplificatis viribus ardore incohibili in excidium urbium matris Seleuciae efferebantur, quam comes tuebatur Castricius tresque legiones bellicis sudoribus induratae.</p>
-										</div>
-									</li>
-								</div>
-							</ul>
-						</div>
-					</div>
-					 -->
 				</div>
 			</div>
 		</div>

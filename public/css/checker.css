@@ -1,16 +1,52 @@
-.badge-ok{
-	background-color : #5CB85C;
+.panel-checker{
+	padding : 0px;
 }
-
-.badge-nok{
-	background-color : #D9534F;
+.panel-checker .list-group{
+	margin-bottom : 0px;	
 }
 
 .checker-label{
 	padding-left : 10px;
 }
 
-.panel-body > div{
-	padding-top : 5px;
-	padding-bottom : 5px;
+
+.panel-checker .panel-body{
+	padding-left : 0px;
+	padding-right : 0px;
+}
+
+.panel-checker >.list-group:first-child .list-group-item:first-child{
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.panel-checker >.list-group:last-child .list-group-item:last-child{
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+
+.panel-checker .checker-plugin{
+	width : 100%;
+	color : white;
+}
+
+.panel-checker .checker-ok{
+	border:none;
+	background-color : #5CB85C;
+}
+
+.panel-checker .checker-nok{
+	border:none;
+	background-color : #D9534F;
+}
+
+.panel-checker .panel-heading{
+	background-color : #5CB85C;
+}
+
+.panel-checker .panel-heading{
+	text-align : center;
+	color : white;
+	text-size : 20px;
 }

@@ -44,11 +44,19 @@
 			that._messageContent=$('<div></div>').addClass('chat-content-message');   
 			
 			// Création du squelette du chat
-			that.append($('<ul></ul>').addClass('chat').css('height',that.parametres.height).append(that._messageContent));
+			that.append(
+				$("<div></div>",{"class":"panel-chat"}).append(
+					$('<ul></ul>')
+						.addClass('chat')
+						.css('height',that.parametres.height)
+						.append(that._messageContent)
+				)
+			);
 			return that;
 		};
 		
 		var addMessage = function(auteur,time,message){
+			
 			var message_elem=$('<li></li>').addClass("clearfix").append(
 				$('<div></div').addClass('chat-body clearfix').append(
 					[
@@ -63,10 +71,11 @@
 								)
 							]
 						),
-						$('<p></p>').html(message)
+						$('<p></p>').text(message)
 					]
 				)
 			);
+			
 			that._messageContent.append(message_elem);
 			while(that._messageContent.children().length > that.parametres.maxMessage){
 				that._messageContent.children().first().remove();
