@@ -3,7 +3,8 @@
 	var defauts={
 		"title": "Titre du Gauge",
 		"height" : '250px',
-		"id" : "gauge2"
+		"id" : "gauge2",
+		"height" : "150px"
 	};
 
 
@@ -42,8 +43,8 @@
 			that.append(
 				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
 					$('<div>', { "class" : "gauge-graph"}).html(	
-						'<svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%;">'+
-							'<g transform="translate(25,25)">'+
+						'<svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: '+that.parametres.height+';">'+
+							'<g transform="translate(25,28)">'+
 								'<g transform="rotate(135,0,0)">'+
 									'<path class="gauge-background" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z"></path>'+
 									'<g transform="rotate(270,0,0)" class="gauge-pourcent">'+
@@ -52,7 +53,7 @@
 									'<path class="font-color" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z l25,0 l0,-50 l-100,0 l0,100 l100,0 l0,-50z"></path>'+
 								'</g>'+
 							'</g>'+
-							'<text x="25" y="28" fill="white" class="gauge-text-pourcent">0%</text>'+
+							'<text x="25" y="31" fill="white" class="gauge-text-pourcent">0%</text>'+
 						'</svg>'
 					)
 				])

@@ -1,0 +1,32 @@
+.panel-gauge svg text{
+	text-anchor : middle;
+	font-size : 12px;
+}
+
+.panel-gauge svg .font-color{
+	fill : rgb(156,66,116);
+	stroke : none;
+}
+
+.panel-gauge svg .value-color{
+	fill : white;
+	stroke : none;
+}
+
+.panel-gauge svg .gauge-text-pourcent{
+	font-size : 10px;
+}
+
+.panel-gauge {
+	text-align : center;
+	background-color : rgb(156,66,116);
+}
+
+.panel-gauge .gauge-graph{
+	width : 100%;
+}
+
+.panel-gauge .gauge-background{
+	fill : black;
+	opacity : 0.3;
+}
