@@ -62,15 +62,38 @@
 			that.hide(500);
 		}
 		
+		// Contient l'animation de modification de l'alerte
+		var modifAnimate=null;
 		var update=function(outil,projet,nb_occur,priorite){
-			that.find(".alerte-outil").text(outil);
-			that.find(".alerte-projet").text(projet);
-			that.find(".alerte-nb-occur").text(nb_occur);
+			var old_outil=that.find(".alerte-outil").text();
+			var old_projet=that.find(".alerte-projet").text();
+			var old_nb_occur=that.find(".alerte-nb-occur").text();
+			var old_priorite=that.attr("priorite");
 			
-			that.attr("priorite",priorite);
-			
-			that.addClass("haveModif")
-			setTimeout(function(){that.removeClass("haveModif")},5000);
+			// On verifie si il y a eu des modifs
+			if(old_outil!=outil || old_projet!=projet || old_nb_occur!=nb_occur || old_priorite!=priorite){
+				// On supprime l'ancienne animation
+				clearInterval(modifAnimate);
+				that.find(".alerte-outil").text(outil);
+				that.find(".alerte-projet").text(projet);
+				that.find(".alerte-nb-occur").text(nb_occur);
+				
+				that.attr("priorite",priorite);
+				
+				that.addClass("haveModif");
+				var i=0;
+				// On lance la nouvelle animation
+				modifAnimate=setInterval(function(){
+						that.toggleClass("haveModif");
+						i++;
+						if(i > 20){
+							clearInterval(modifAnimate);
+							that.removeClass("haveModif");
+						}
+					}
+					,200
+				);
+			}
 		}
 		
 		// Liste des methodes externe

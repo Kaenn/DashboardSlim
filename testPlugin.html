@@ -14,7 +14,6 @@
 		<link href="public/css/gaugeNumber.css" rel="stylesheet">
 		<link href="public/css/maquetteV1.css" rel="stylesheet" type="text/css">
 		<link href="public/css/alerte.css" rel="stylesheet" type="text/css">
-		<link href="public/css/gauge2.css" rel="stylesheet" type="text/css">
 		
 		<meta name="Author" content="SI, Claranet FR">
 		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
@@ -22,115 +21,51 @@
 
 		<script src="public/js/d3/d3.min.js" charset="utf-8"></script>
 		<script src="public/js/c3/c3.min.js"></script>
-		<script src="public/js/gauge2.js"></script>
+		<script src="public/js/contenerAlerte.js"></script>
+		<script src="public/js/alerte.js"></script>
 
 		
 		<style>
-			.panel-checker .panel-body{
-				padding-left : 0px;
-				padding-right : 0px;
-			}
-			
-			.panel-checker >.list-group:first-child .list-group-item:first-child{
-				border-top-right-radius: 0px;
-  				border-top-left-radius: 0px;
-			}
-			
-			.panel-checker >.list-group:last-child .list-group-item:last-child{
-				border-bottom-right-radius: 0px;
-  				border-bottom-left-radius: 0px;
-			}
-			
-			
-			.panel-checker .checker-plugin{
-				width : 100%;
-				color : white;
-			}
-			
-			.panel-checker .checker-ok{
-				border:none;
-				background-color : #5CB85C;
-			}
-			
-			.panel-checker .checker-nok{
-				border:none;
-				background-color : #D9534F;
-			}
-			
-			.panel-checker .panel-heading{
-				background-color : #5CB85C;
-			}
-			
-			.panel-checker .panel-heading{
-				text-align : center;
-				color : white;
-				text-size : 20px;
-			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			.panel-chat{
-				padding : 10px;
-				background-color : white;
-			}
-			
-			.panel-chat .primary-font{
-				font-size : 20px;
-				color : #12b0c5;
-			}
-			.panel-chat p{
-				color : black;
-				font-weight : bold;
-				font-size : 13px;
-			}
-			
-			
-			
-			
-			
-			
 			
 		</style>
 
 		
 		<script>
 			$(function() {
-				/*function generatePathGauge(pourcentage){
-					
-					var angle=parseInt(pourcentage*(360-90)/100);
-					
-					var pathFirstTier="M0,0 l25,0 a25,25 0 0,0 -25,-25z";
-					var pathSecondTier="M25,0 a25,25 0 0,0 -50,0z";
-					var pathLastTier="M0,0 l25,0 a25,25 0 1,0 -25,25z";
-					
-					if(angle<90){
-						$(".gauge-pourcent path").attr("d",pathFirstTier);
-					}else{
-						if(angle<180){
-							$(".gauge-pourcent path").attr("d",pathSecondTier);
-						}else{
-							$(".gauge-pourcent path").attr("d",pathLastTier);
-						}
+				$("#contener").contenerAlerte({
+					"alertes" : {
+						"1020" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1021" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						"1022" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1023" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1024" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						"1025" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1026" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1027" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1028" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1029" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"}
+						
 					}
-					$(".gauge-pourcent").attr("transform","rotate("+angle+",0,0)");
-				}
-			
-				*/
-				$("#test").on("click",function(){
-					$("#div-gauge2").gauge2("update",$("#test-input").val());
 				});
-
-				$("#div-gauge2").gauge2();
+				
+				$("#test").on("click",function(){
+					$("#contener").contenerAlerte("updateAll",
+					{
+						"1020" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1021" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						"1022" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1023" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1024" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						"1025" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1026" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1027" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1028" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						"1029" : {outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
+						"1030" : {outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"}
+						
+					}	
+					);
+				});
 			});
 		</script>
 	</head>
@@ -140,7 +75,7 @@
 			
 			
 			<div class="row" style="padding-left : 15px;">
-				<div class="col-lg-3 cadre" id="div-gauge2"></div>
+				<div class="col-lg-8 cadre" id="contener"></div>
 			</div>
 			
 		</div>
