@@ -53,7 +53,6 @@
 				),
 				$("<div>",{ "class" : "content-title"}).append(
 					$("<div>").append([
-					    $("<div>",{ "class" : "background-title"}).html(that.parametres.title),
 					    $("<div>",{ "class" : "title"}).html(that.parametres.title)
 					]).append()
 				)
