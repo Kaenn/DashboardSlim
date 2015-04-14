@@ -1,13 +1,32 @@
-.c3-chart-arc .c3-gauge-value{
+.panel-gauge svg text{
+	text-anchor : middle;
+	font-size : 12px;
+}
+
+.panel-gauge svg .font-color{
+	fill : rgb(156,66,116);
+	stroke : none;
+}
+
+.panel-gauge svg .value-color{
 	fill : white;
+	stroke : none;
 }
 
-.menu-gauge{
-	padding : 0px;
+.panel-gauge svg .gauge-text-pourcent{
+	font-size : 10px;
 }
 
-
-.panel-gauge .panel-heading, #panel-check .panel-heading, #panel-chat .panel-heading{
+.panel-gauge {
 	text-align : center;
-	font-weight : bold;
+	background-color : rgb(156,66,116);
+}
+
+.panel-gauge .gauge-graph{
+	width : 100%;
+}
+
+.panel-gauge .gauge-background{
+	fill : black;
+	opacity : 0.3;
 }

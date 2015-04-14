@@ -3,26 +3,26 @@
 	var defauts={
 		"title": "Titre du Gauge",
 		"height" : '250px',
-		"id" : "gauge"
+		"height" : "150px"
 	};
 
 
-	$.fn.gauge=function(methodOrOptions){
+	$.fn.gauge2=function(methodOrOptions){
 		var methodArgs=arguments;	
 		this.each(function(){
-			var gauge=$(this).data('gauge');
-			if (typeof gauge === "undefined") {
+			var gauge2=$(this).data('gauge2');
+			if (typeof gauge2 === "undefined") {
 				// On initialise la classe
 				var options=methodOrOptions;
 			
-				gauge=$.gauge($(this),options);
+				gauge2=$.gauge2($(this),options);
 			}else{
 				// On applique une method public sur la classe
 				var method=methodOrOptions;
 			
-				gauge.doPublicMethod(method,methodArgs);
+				gauge2.doPublicMethod(method,methodArgs);
 			}
-			$(this).data('gauge',gauge);
+			$(this).data('gauge2',gauge2);
 		});
 		
 		return this;
@@ -30,66 +30,59 @@
 
 
 
-	$.gauge=function(that,methodOrOptions){
+	$.gauge2=function(that,methodOrOptions){
 		that.gauge=null;
 	
 		var initialize = function(){
 			
 			// On vide le conteneur
-			that.html('');
+			that.empty();
 			
-			// Cr�ation du squelette du gauage
+			// Creation du squelette du gauge
 			that.append(
 				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
-					$('<div>', { "class" : "panel-heading"}).html(that.parametres.titre),
-					$('<div>', { "class" : "panel-body"}).append(
-						$('<div>', { 'id' : that.parametres.id })
-					),
+					$('<div>', { "class" : "gauge-graph"}).html(	
+						'<svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: '+that.parametres.height+';">'+
+							'<g transform="translate(25,28)">'+
+								'<g transform="rotate(135,0,0)">'+
+									'<path class="gauge-background" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z"></path>'+
+									'<g transform="rotate(270,0,0)" class="gauge-pourcent">'+
+										'<path class="value-color" d=""></path>'+
+									'</g>'+
+									'<path class="font-color" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z l25,0 l0,-50 l-100,0 l0,100 l100,0 l0,-50z"></path>'+
+								'</g>'+
+							'</g>'+
+							'<text x="25" y="31" fill="white" class="gauge-text-pourcent">0%</text>'+
+						'</svg>'
+					)
 				])
 			);
 			
-			that.gauge = c3.generate({
-				bindto: '#'+that.parametres.id,
-				data: {
-					columns: [
-						['data', that.parametres.value]
-					],
-					type: 'gauge'
-				},
-				gauge: {
-			//        label: {
-			//            format: function(value, ratio) {
-			//                return value;
-			//            },
-			//            show: false // to turn off the min/max labels.
-			//        },
-			//    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
-			//    max: 100, // 100 is default
-			//    units: ' %',
-			//    width: 39 // for adjusting arc thickness
-				},
-				color: {
-					pattern: ['#60B044', '#F6C600', '#F97600', '#FF0000'], // the three color levels for the percentage values.
-					threshold: {
-			//            unit: 'value', // percentage is default
-			//            max: 200, // 100 is default
-						values: [30, 60, 90, 100]
-					}
-				},
-				size: {
-					height: that.parametres.height
-				},
-				tooltip : {
-					show : false
-				}
-			});
+			
 			return that;
 		};
 		
-		var update = function(val){
-			that.gauge.load({
-				columns: [['data', val]]
-			});
+		var update = function(pourcentage){
+			var angle=parseInt(pourcentage*(360-90)/100);
+			
+			var pathFirstTier="M0,0 l25,0 a25,25 0 0,0 -25,-25z";
+			var pathSecondTier="M25,0 a25,25 0 0,0 -50,0z";
+			var pathLastTier="M0,0 l25,0 a25,25 0 1,0 -25,25z";
+			
+			if(angle==0){
+				that.find(".gauge-pourcent path").attr("d","");
+			}else if(angle<90){
+				that.find(".gauge-pourcent path").attr("d",pathFirstTier);
+			}else{
+				if(angle<180){
+					that.find(".gauge-pourcent path").attr("d",pathSecondTier);
+				}else{
+					that.find(".gauge-pourcent path").attr("d",pathLastTier);
+				}
+			}
+			that.find(".gauge-pourcent").attr("transform","rotate("+angle+",0,0)");
+			that.find(".gauge-text-pourcent").text(pourcentage+"%");
+			
 			return that;
 		};
 		
