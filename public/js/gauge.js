@@ -7,22 +7,22 @@
 	};
 
 
-	$.fn.gauge2=function(methodOrOptions){
+	$.fn.gauge=function(methodOrOptions){
 		var methodArgs=arguments;	
 		this.each(function(){
-			var gauge2=$(this).data('gauge2');
-			if (typeof gauge2 === "undefined") {
+			var gauge=$(this).data('gauge');
+			if (typeof gauge === "undefined") {
 				// On initialise la classe
 				var options=methodOrOptions;
 			
-				gauge2=$.gauge2($(this),options);
+				gauge=$.gauge($(this),options);
 			}else{
 				// On applique une method public sur la classe
 				var method=methodOrOptions;
 			
-				gauge2.doPublicMethod(method,methodArgs);
+				gauge.doPublicMethod(method,methodArgs);
 			}
-			$(this).data('gauge2',gauge2);
+			$(this).data('gauge',gauge);
 		});
 		
 		return this;
@@ -30,7 +30,7 @@
 
 
 
-	$.gauge2=function(that,methodOrOptions){
+	$.gauge=function(that,methodOrOptions){
 		that.gauge=null;
 	
 		var initialize = function(){
