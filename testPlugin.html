@@ -7,7 +7,6 @@
         <link href="public/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap theme -->
         <link href="public/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
-		<link href="public/js/c3/c3.css" rel="stylesheet" type="text/css">
 		
 		<link href="public/css/checker.css" rel="stylesheet">
 		<link href="public/css/chat.css" rel="stylesheet">
@@ -19,53 +18,44 @@
 		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
 		<script src="public/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
 
-		<script src="public/js/d3/d3.min.js" charset="utf-8"></script>
-		<script src="public/js/c3/c3.min.js"></script>
 		<script src="public/js/contenerAlerte.js"></script>
 		<script src="public/js/alerte.js"></script>
+		
+		<link href="public/css/gauge.css" rel="stylesheet" type="text/css">
+		<script src="public/js/gauge.js"></script>
+		
+		<link href="public/css/gaugeNumber.css" rel="stylesheet" type="text/css">
+		<script src="public/js/gaugeNumber.js"></script>
+		
+		
+		<link href="public/css/jquery-ui-drag-drop.min.css" rel="stylesheet" type="text/css">
+		<script src="public/js/jquery-ui-drag-drop.min.js" charset="utf-8"></script>
 
 		
 		<style>
+			body{
+				padding : 0;
+			}
 			
+			.left-cadre{
+				background-color : #202020;
+				padding : 10px 15px;
+			}
+			
+			.left-cadre > *{
+				padding : 2.5px 0px;
+			}
 		</style>
 
 		
 		<script>
+		
 			$(function() {
-				$("#contener").contenerAlerte({
-					"alertes" : [
-						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1021",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						{id:"1022",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1023",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1024",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						{id:"1025",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1026",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1027",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1028",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1029",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"}
-					]
-				});
+				$('#div-gauge1').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
+				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
+				$('#div-gauge2').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
 				
-				$("#test").on("click",function(){
-					$("#contener").contenerAlerte("updateAll",
-					[
-						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1022",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1023",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1027",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1028",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1029",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
-						{id:"1030",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
-						{id:"1031",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1032",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1033",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1037",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1038",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1039",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
-						{id:"1040",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"}
-					]);
-				});
+				$(".left-cadre").sortable();
 			});
 		</script>
 	</head>
@@ -74,8 +64,13 @@
 			<button id="test" >Test</button><input id="test-input" />
 			
 			
-			<div class="row" style="padding-left : 15px;">
-				<div class="col-lg-8 cadre" id="contener"></div>
+			<div class="row">
+				<div class="col-lg-2 cadre left-cadre">
+					<div id="div-gauge1"></div>
+					<div id="div-gauge2"></div>
+					<div id="div-gauge-number"></div>
+					
+				</div>
 			</div>
 			
 		</div>
