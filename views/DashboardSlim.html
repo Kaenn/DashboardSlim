@@ -8,7 +8,6 @@
         <!-- Bootstrap theme -->
         <link href="/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
 		
-		<link href="/js/c3/c3.css" rel="stylesheet" type="text/css">
 		<link href="/css/chat.css" rel="stylesheet" type="text/css">
 		<link href="/css/slim-dashboard.css" rel="stylesheet" type="text/css">
 		<link href="/css/gauge.css" rel="stylesheet" type="text/css">
@@ -18,9 +17,6 @@
 
 		<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
 		<script src="/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
-
-		<script src="/js/d3/d3.min.js" charset="utf-8"></script>
-		<script src="/js/c3/c3.min.js"></script>
 		
 		<script src="/js/slim-dashboard.js"></script>
 		<script src="/js/contener.js"></script>
@@ -38,6 +34,29 @@
 			$(function(){
 				$('#div-progressBar').progressBar();
 				
+				
+				
+				$('#div-gauge1').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
+				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
+				$('#div-gauge2').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
+				
+				
+				$('#div-alerts').contenerAlerte({
+					"alertes" : [
+						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1021",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						{id:"1022",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1023",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1024",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						{id:"1025",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1026",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1027",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1028",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1029",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"}
+					]
+				});
+				
+				
 				$('#div-checker').contenerChecker({
 					'checkList' : {
 						"Zabbix" : true,
@@ -48,16 +67,9 @@
 						"AWS" : false
 					}
 				});
-				
-				$('#div-gauge1').gauge({"id" : "gauge1", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
-				$('#div-gauge2').gauge({"id" : "gauge2", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
-				
-				
-				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
-				
 				$('#div-chat').chat({'height' : '600px'});
 				
-				$('#div-alerts').contenerAlert({'alerts' : [{outil:"Zabbix",projet:"Claranet SI",nb_occur:"2"}]});
+				
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
