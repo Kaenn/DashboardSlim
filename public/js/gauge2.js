@@ -3,7 +3,6 @@
 	var defauts={
 		"title": "Titre du Gauge",
 		"height" : '250px',
-		"id" : "gauge2",
 		"height" : "150px"
 	};
 

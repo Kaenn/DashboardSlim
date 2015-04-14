@@ -49,7 +49,9 @@
 					}
 				});
 				
-				$('#div-gauge').gauge({"id" : "gauge1", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
+				$('#div-gauge1').gauge({"id" : "gauge1", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
+				$('#div-gauge2').gauge({"id" : "gauge2", "value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
+				
 				
 				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
 				
@@ -71,6 +73,35 @@
 	<body>
 		<div class="container">
 			<div class="row">
+				<div class="col-lg-12 cadre">
+					<div id="div-progressBar"></div>
+				</div>
+			</div>
+			
+			<div class="row" style="padding-left : 15px;">
+				<div class="col-lg-2 cadre">
+					<div id="div-gauge1"></div>
+					<div id="div-gauge-number"></div>
+					<div id="div-gauge2"></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-8 cadre">
+					<div id="div-alertes"></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-2 cadre">
+					<div id="div-checker"></div>
+					<div id="div-chat"></div>
+				</div>
+			</div>
+			
+			
+		
+			<!-- <div class="row">
 				<div class="col-lg-4 cadre">
 					<div id="div-alerts"></div>
 				</div>
@@ -109,7 +140,7 @@
 				<div class="col-lg-4 cadre">
 					<div id="div-gauge-number"></div>
 				</div>
-			</div>
+			</div> -->
 			
 			
 			
