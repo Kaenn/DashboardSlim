@@ -33,6 +33,9 @@
 
 
 	$.alerte=function(that,methodOrOptions){
+		// Contient l'animation de modification de l'alerte
+		var modifAnimate=null;
+		
 		var initialize = function(){
 			// On vide le conteneur
 			that.empty();
@@ -55,6 +58,15 @@
 				.hide()
 				.attr("alerte-id",that.parametres.id);
 			
+			// On supprime l'ancienne animation
+			clearTimeout(modifAnimate);
+			
+			// On lance la nouvelle animation
+			that.addClass("haveModif");
+			modifAnimate=setTimeout(function(){ 
+				that.removeClass("haveModif");
+			}, 3000);
+			
 			return that;
 		};
 		
@@ -62,8 +74,7 @@
 			that.hide(500);
 		}
 		
-		// Contient l'animation de modification de l'alerte
-		var modifAnimate=null;
+		
 		var update=function(outil,projet,nb_occur,priorite){
 			var old_outil=that.find(".alerte-outil").text();
 			var old_projet=that.find(".alerte-projet").text();
@@ -73,26 +84,19 @@
 			// On verifie si il y a eu des modifs
 			if(old_outil!=outil || old_projet!=projet || old_nb_occur!=nb_occur || old_priorite!=priorite){
 				// On supprime l'ancienne animation
-				clearInterval(modifAnimate);
+				clearTimeout(modifAnimate);
 				that.find(".alerte-outil").text(outil);
 				that.find(".alerte-projet").text(projet);
 				that.find(".alerte-nb-occur").text(nb_occur);
 				
 				that.attr("priorite",priorite);
 				
-				that.addClass("haveModif");
-				var i=0;
 				// On lance la nouvelle animation
-				modifAnimate=setInterval(function(){
-						that.toggleClass("haveModif");
-						i++;
-						if(i > 20){
-							clearInterval(modifAnimate);
-							that.removeClass("haveModif");
-						}
-					}
-					,200
-				);
+				that.addClass("haveModif");
+				modifAnimate=setTimeout(function(){ 
+					that.removeClass("haveModif");
+				}, 3000);
+				
 			}
 		}
 		

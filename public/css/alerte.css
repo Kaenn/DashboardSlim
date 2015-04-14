@@ -15,7 +15,10 @@
 }
 
 .contener-alerte .well.haveModif{
-	border : 2px solid rgba(255,255,255,0);
+	-webkit-animation: alerte-have-modif 0.5s infinite;
+       -moz-animation: alerte-have-modif 0.5s infinite;
+         -o-animation: alerte-have-modif 0.5s infinite;
+            animation: alerte-have-modif 0.5s infinite;
 }
 
 .contener-alerte .well[priorite="1"]{
@@ -67,4 +70,11 @@
 	width : 100%;
 	font-weight : bold;
 	overflow : hidden;
+}
+
+
+
+@-webkit-keyframes alerte-have-modif {
+	0%{border : 2px solid rgba(255,255,255,0);}
+	100%{border : 2px solid white;}
 }

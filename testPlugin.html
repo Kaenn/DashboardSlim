@@ -33,38 +33,38 @@
 		<script>
 			$(function() {
 				$("#contener").contenerAlerte({
-					"alertes" : {
-						"1020" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1021" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						"1022" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1023" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1024" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						"1025" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1026" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1027" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1028" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1029" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"}
-						
-					}
+					"alertes" : [
+						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1021",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						{id:"1022",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1023",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1024",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
+						{id:"1025",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1026",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1027",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1028",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1029",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"}
+					]
 				});
 				
 				$("#test").on("click",function(){
 					$("#contener").contenerAlerte("updateAll",
-					{
-						"1020" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1021" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						"1022" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1023" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1024" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						"1025" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1026" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1027" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1028" : {outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						"1029" : {outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
-						"1030" : {outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"}
-						
-					}	
-					);
+					[
+						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1022",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1023",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1027",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1028",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1029",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
+						{id:"1030",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
+						{id:"1031",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1032",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1033",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1037",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1038",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
+						{id:"1039",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"},
+						{id:"1040",outil:"Zabbix",projet:"GG SI",nb_occur:"3",priorite:"1"}
+					]);
 				});
 			});
 		</script>

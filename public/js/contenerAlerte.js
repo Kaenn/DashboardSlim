@@ -37,11 +37,11 @@
 			
 			
 			
-			for(var id_alerte in that.parametres.alertes){
-				var alerte=that.parametres.alertes[id_alerte];
+			for(var alerte_key in that.parametres.alertes){
+				var alerte=that.parametres.alertes[alerte_key];
 				that.append(
 					$("<div>").alerte({
-						"id" : id_alerte,
+						"id" : alerte['id'],
 						"outil" : alerte["outil"],
 						"projet" : alerte["projet"],
 						"nb_occur" : alerte["nb_occur"],
@@ -98,24 +98,21 @@
 		
 		var updateAll=function(alertes){
 			var alertesId=[];
-			for(var alerte_id in alertes){
-				var alerte=alertes[alerte_id];
+			for(var alerte_key in alertes){
+				var alerte=alertes[alerte_key];
 				
-				if(!alerteExiste(alerte_id)){
-					create(alerte_id,alerte.outil,alerte.projet,alerte.nb_occur,alerte.priorite);
+				if(!alerteExiste(alerte.id)){
+					create(alerte.id,alerte.outil,alerte.projet,alerte.nb_occur,alerte.priorite);
 				}else{
-					update(alerte_id,alerte.outil,alerte.projet,alerte.nb_occur,alerte.priorite);
+					update(alerte.id,alerte.outil,alerte.projet,alerte.nb_occur,alerte.priorite);
 				}
-				alertesId.push(alerte_id);
+				alertesId.push(alerte.id);
 			}
 			
 			that.find(".panel-alerte").each(function(){
-				var aId=""+$(this).attr("alerte-id");
-				console.log(alertesId);
-				console.log(aId);
-				console.log(aId in alertesId);
-				console.log("---------------");
-				if(!(aId in alertesId)){
+				var aId=$(this).attr("alerte-id");
+				
+				if(alertesId.indexOf(aId)=="-1"){
 					remove(aId);
 				}
 			});
