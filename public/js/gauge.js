@@ -2,7 +2,8 @@
 	// Parametre par defaut
 	var defauts={
 		"title": "Titre du Gauge",
-		"height" : '250px'
+		"height" : '250px',
+		"value" : 0
 	};
 
 
@@ -57,11 +58,15 @@
 				])
 			);
 			
+			update(that.parametres.value);
 			
 			return that;
 		};
 		
 		var update = function(pourcentage){
+			if(pourcentage > 100) pourcentage=100;
+			if(pourcentage < 0) pourcentage=0;
+			
 			var angle=parseInt(pourcentage*(360-90)/100);
 			
 			var pathFirstTier="M0,0 l25,0 a25,25 0 0,0 -25,-25z";
