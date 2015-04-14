@@ -40,7 +40,7 @@
 			
 			// Creation du squelette du gauge
 			that.append(
-				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append([
+				$('<div>',{ "class" : "panel-default panel-gauge"}).append([
 					$('<div>', { "class" : "gauge-graph"}).html(	
 						'<svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: '+that.parametres.height+';">'+
 							'<g transform="translate(25,28)">'+

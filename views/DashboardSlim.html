@@ -7,26 +7,43 @@
         <link href="/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap theme -->
         <link href="/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
-		
-		<link href="/css/chat.css" rel="stylesheet" type="text/css">
-		<link href="/css/slim-dashboard.css" rel="stylesheet" type="text/css">
-		<link href="/css/gauge.css" rel="stylesheet" type="text/css">
-		<link href="/css/gaugeNumber.css" rel="stylesheet" type="text/css">
-		<link href="/css/checker.css" rel="stylesheet" type="text/css">
-		<link href="/css/progressBar.css" rel="stylesheet" type="text/css">
+
 
 		<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
 		<script src="/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
 		
-		<script src="/js/slim-dashboard.js"></script>
+		
+		
+		<link href="/css/slim-dashboard.css" rel="stylesheet" type="text/css">
+		
 		<script src="/js/contener.js"></script>
-		<script src="/js/contenerChecker.js"></script>
-		<script src="/js/contenerAlert.js"></script>
+		
+		
+		
+		<link href="/css/chat.css" rel="stylesheet" type="text/css">
 		<script src="/js/chat.js"></script>
+		
+		
+		<link href="/css/gauge.css" rel="stylesheet" type="text/css">
 		<script src="/js/gauge.js"></script>
+		
+		
+		<link href="/css/gaugeNumber.css" rel="stylesheet" type="text/css">
 		<script src="/js/gaugeNumber.js"></script>
+		
+		
+		<link href="/css/checker.css" rel="stylesheet" type="text/css">
+		<script src="/js/contenerChecker.js"></script>
 		<script src="/js/checker.js"></script>
+		
+		
+		<link href="/css/progressBar.css" rel="stylesheet" type="text/css">
 		<script src="/js/progressBar.js"></script>
+		
+		
+		<link href="/css/alerte.css" rel="stylesheet" type="text/css">
+		<script src="/js/contenerAlerte.js"></script>
+		<script src="/js/alerte.js"></script>
 		
 		
 		<script src="/socket.io/socket.io.js"></script>
@@ -41,7 +58,7 @@
 				$('#div-gauge2').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
 				
 				
-				$('#div-alerts').contenerAlerte({
+				$('#div-alertes').contenerAlerte({
 					"alertes" : [
 						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
 						{id:"1021",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
@@ -93,18 +110,15 @@
 			<div class="row" style="padding-left : 15px;">
 				<div class="col-lg-2 cadre">
 					<div id="div-gauge1"></div>
-					<div id="div-gauge-number"></div>
 					<div id="div-gauge2"></div>
+					<div id="div-gauge-number"></div>
+					
 				</div>
-			</div>
 			
-			<div class="row">
 				<div class="col-lg-8 cadre">
 					<div id="div-alertes"></div>
 				</div>
-			</div>
-			
-			<div class="row">
+				
 				<div class="col-lg-2 cadre">
 					<div id="div-checker"></div>
 					<div id="div-chat"></div>
