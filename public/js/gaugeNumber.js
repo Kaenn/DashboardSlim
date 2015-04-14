@@ -1,7 +1,7 @@
 (function($){
 	// Parametre par defaut
 	var defauts={
-		title : "glenn",
+		title : "title",
 		operandInit : 0,
 		operatorInit : 0
 	};
@@ -38,25 +38,27 @@
 			var pourcentage=calculPourcentage(that.parametres.operatorInit,that.parametres.operandInit);
 			
 			// Création du squelette du gauge
-			that.append([
-				$('<div>', {'class' : "inline gauge-group"}).append([
-					$('<div>',{'class' : "number-gauge operator"}).append(
-						$('<div>', {'class' : "curr-value"}).html(that.parametres.operatorInit)
+			that.append(
+				$("<div>").append([
+					$('<div>', {'class' : "inline gauge-group"}).append([
+						$('<div>',{'class' : "number-gauge operator"}).append(
+							$('<div>', {'class' : "curr-value"}).html(that.parametres.operatorInit)
+						),
+						$('<span>',{'class' : "separate"}).html(" / "),
+						$('<div>',{'class' : "number-gauge operand"}).append(
+							$('<div>', {'class' : "curr-value"}).html(that.parametres.operandInit)
+						)
+					]),
+					$('<div>', {'class' : "inline gauge-group"}).append(
+						$('<span>',{"class": "pourcentage"}).html(pourcentage+"%")
 					),
-					$('<span>',{'class' : "separate"}).html(" / "),
-					$('<div>',{'class' : "number-gauge operand"}).append(
-						$('<div>', {'class' : "curr-value"}).html(that.parametres.operandInit)
+					$("<div>",{ "class" : "content-title"}).append(
+						$("<div>").append([
+						    $("<div>",{ "class" : "title"}).html(that.parametres.title)
+						]).append()
 					)
-				]),
-				$('<div>', {'class' : "inline gauge-group"}).append(
-					$('<span>',{"class": "pourcentage"}).html(pourcentage+"%")
-				),
-				$("<div>",{ "class" : "content-title"}).append(
-					$("<div>").append([
-					    $("<div>",{ "class" : "title"}).html(that.parametres.title)
-					]).append()
-				)
-			]).addClass("panel-gaugeNumber");
+				])
+			).addClass("panel-gaugeNumber");
 			// ToDo : Amélioré le background opacity ( opacifi aussi le texte . Pas top...)
 			
 			return that;

@@ -1,4 +1,4 @@
-.panel-gaugeNumber{
+.panel-gaugeNumber > div{
 	background-color : green;
 	color : white;
 }
