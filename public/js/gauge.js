@@ -2,8 +2,7 @@
 	// Parametre par defaut
 	var defauts={
 		"title": "Titre du Gauge",
-		"height" : '250px',
-		"height" : "150px"
+		"height" : '250px'
 	};
 
 
