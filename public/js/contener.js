@@ -45,7 +45,7 @@
 			
 			// Création du squelette du gauge
 			that.append(
-				$('<div>',{ "class" : "panel panel-default panel-gauge"}).append(contenerSquelette)
+				$('<div>',{ "class" : "panel-default panel-contener"}).append(contenerSquelette)
 			);
 			
 			

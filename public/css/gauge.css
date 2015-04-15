@@ -30,3 +30,26 @@
 	fill : black;
 	opacity : 0.3;
 }
+
+
+.panel-gauge .content-title{
+	min-width : 1px;
+	width : 100%;
+	padding : 10px;
+	text-align : center;
+}
+
+.panel-gauge .content-title > *{
+	width : 100%;
+	min-height : 7px;
+	position : relative;
+	
+}
+
+.panel-gauge .title{
+	color : white;
+	padding-top : 3px;
+	padding-bottom : 3px;
+	opacity : 0.99;
+	background-color : rgba(0,0,0,0.3);
+}

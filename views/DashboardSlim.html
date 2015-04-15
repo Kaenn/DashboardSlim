@@ -86,9 +86,16 @@
 						"AWS" : false
 					}
 				});
-				$('#div-chat').chat({'height' : '600px'});
+				$('#div-chat').chat({'height' : '500px'});
 				
-				$(".left-cadre").sortable();
+				$(".left-cadre").sortable({
+					cursor : "move"
+				});
+				
+				$(".right-cadre").sortable({
+					cursor : "move",
+					axis : "x"
+				});
 		
 				var socket = io.connect('http://localhost:8333');
 				socket.on('add-message', function(auteur,time,message) {
@@ -104,7 +111,7 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12 cadre">
+				<div class="col-lg-12 cadre top-cadre">
 					<div id="div-progressBar"></div>
 				</div>
 			</div>
@@ -112,66 +119,20 @@
 			<div class="row">
 				<div class="col-lg-2 cadre left-cadre">
 					<div id="div-gauge1"></div>
-					<div id="div-gauge2"></div>
 					<div id="div-gauge-number"></div>
+					<div id="div-gauge2"></div>
 					
 				</div>
 			
-				<div class="col-lg-8 cadre">
+				<div class="col-lg-8 cadre middle-cadre">
 					<div id="div-alertes"></div>
 				</div>
 				
-				<div class="col-lg-2 cadre">
+				<div class="col-lg-2 cadre right-cadre">
 					<div id="div-checker"></div>
 					<div id="div-chat"></div>
 				</div>
 			</div>
-			
-			
-		
-			<!-- <div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="div-alerts"></div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="div-chat"></div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="div-checker"></div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-lg-12 ">
-					<div id="div-progressBar"></div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="div-checker"></div>
-				</div>
-			</div>
-		
-			<div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="div-gauge"></div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg-4 cadre">
-					<div id="div-gauge-number"></div>
-				</div>
-			</div> -->
-			
-			
-			
 		</div>
 	</body>
 </html>

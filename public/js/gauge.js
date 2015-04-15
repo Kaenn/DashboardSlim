@@ -54,6 +54,12 @@
 							'</g>'+
 							'<text x="25" y="31" fill="white" class="gauge-text-pourcent">0%</text>'+
 						'</svg>'
+					).append(
+						$("<div>",{ "class" : "content-title"}).append(
+							$("<div>").append([
+							    $("<div>",{ "class" : "title"}).html(that.parametres.title)
+							])
+						)
 					)
 				])
 			);
