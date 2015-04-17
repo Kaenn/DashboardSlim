@@ -6,7 +6,7 @@ $action=isset($_GET['action']) ? $action=$_GET['action'] : $action=null;
 if(method_exists('DashboardControle', $action))
 	echo json_encode(DashboardControle::$action());
 else
-	echo json_encode('Pas de méthode trouvée : '.$action);
+	echo json_encode('Pas de methode trouvee : '.$action);
 
 
 class DashboardControle{
@@ -59,6 +59,32 @@ class DashboardControle{
 			return $result;
 		}else{
 			return "Param val manquant!!!";
+		}
+	}
+	
+	
+	public static function updateProgressBar(){
+	
+		if(isset($_GET['value'])){
+	
+			$data=json_encode(array("value" => $_GET['value']));
+				
+			$ch = curl_init('http://localhost:8333/RemoteControle/update-progressbar');
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+				'Content-Type: application/json',
+				'Content-Length: ' . strlen($data),
+				'Accept: application/json',
+				'Cache-Control: no-cache'
+			));
+				
+			$result = curl_exec($ch);
+	
+			return $result;
+		}else{
+			return "Param value manquant!!!";
 		}
 	}
 

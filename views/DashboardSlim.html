@@ -102,6 +102,10 @@
 					$('#div-chat').chat('addMessage',auteur,time,message);
 				});
 				
+				socket.on('update-progressBar', function(value) {
+					$('#div-progressBar').progressBar("update",value);
+				});
+				
 				/*socket.on('update-gauge', function(val) {
 					$('#gauge-div').gauge('update',val);
 				});*/

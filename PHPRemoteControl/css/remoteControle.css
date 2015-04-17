@@ -1,0 +1,86 @@
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+	.sidebar-nav .navbar .navbar-collapse {
+   		padding: 0;
+   		max-height: none;
+ 	}
+ 	.sidebar-nav .navbar ul {
+   		float: none;
+ 	}
+ 	.sidebar-nav .navbar ul:not {
+   		display: block;
+ 	}
+ 	.sidebar-nav .navbar li {
+   		float: none;
+   		display: block;
+ 	}
+ 	.sidebar-nav .navbar li a {
+   		padding-top: 12px;
+   		padding-bottom: 12px;
+ 	}
+ 	
+ 	
+ 	html,
+	html body,
+	html body #remote-content,
+	html body #remote-content #remote-menu,
+	html body #remote-content #remote-menu .sidebar-nav,
+	html body #remote-content #remote-menu .sidebar-nav .navbar{
+		height : 100%;
+	}
+	
+	
+	html body #remote-content #remote-menu .sidebar-nav .navbar{
+		border-radius : 0;
+		margin : 0;
+	}
+	
+	html body #remote-content #remote-menu{
+		padding-right : 0;
+	}
+	
+	
+	
+	html body #remote-content #remote-menu .sidebar-nav .navbar ul.navbar-nav li a{
+		padding-left : 30px;
+	}
+}
+
+html{
+	overflow-x : hidden;
+}
+
+#remote-content > div{
+	padding : 0px 30px 0px 15px;
+}
+
+#remote-content div.remote-contener{
+	display : none;
+}
+
+#remote-content > div.remote-contener.active{
+	display : block;
+}
+
+.slider-selection {
+	background: #BABABA;
+}
+
+.slider.slider-horizontal{
+	margin-left : 15px;
+	width : 95%;
+	padding-right : 15px;
+}
+
+
+#remote-content div[contener-id="#progressBar"] .input-group > span{
+	min-width : 150px;
+}
+
+
+
+
+
+
+
+

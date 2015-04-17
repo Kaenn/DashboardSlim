@@ -48,4 +48,7 @@ chat.router(app,io.sockets);
 var gauge=require('./plugin/gauge');
 gauge.router(app,io.sockets);
 
+var progressBar=require('./plugin/progressBar');
+progressBar.router(app,io.sockets);
+
 
