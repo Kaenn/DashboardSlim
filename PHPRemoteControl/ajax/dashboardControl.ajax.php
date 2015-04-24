@@ -39,9 +39,9 @@ class DashboardControle{
 	
 	public static function updateGauge(){
 	
-		if(isset($_GET['val'])){
+		if(isset($_GET['val']) && isset($_GET['id'])){
 	
-			$data=json_encode(array("val" => $_GET['val']));
+			$data=json_encode(array("val" => $_GET['val'],"id" => $_GET['id']));
 				
 			$ch = curl_init('http://localhost:8333/RemoteControle/update-gauge');
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");

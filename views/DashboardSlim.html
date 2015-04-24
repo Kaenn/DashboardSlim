@@ -106,9 +106,9 @@
 					$('#div-progressBar').progressBar("update",value,color);
 				});
 				
-				/*socket.on('update-gauge', function(val) {
-					$('#gauge-div').gauge('update',val);
-				});*/
+				socket.on('update-gauge', function(val,id) {
+					$('#div-'+id).gauge('update',val);
+				});
 			});
         </script>
 	</head>

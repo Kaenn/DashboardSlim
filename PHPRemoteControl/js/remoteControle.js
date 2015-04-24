@@ -67,19 +67,58 @@ $(function(){
 	
 	
 	
+
+	/**********************************************************************************************/
+	/*************************************** Gauge ************************************************/
+	/**********************************************************************************************/
+	
+	$('.moins-gauge').on('click',function(){
+		var valGauge=parseInt($(this).parent().children('.gauge-val').val()) || 50;
+
+		$(this).parent().children('.gauge-val').val(valGauge-5);
+
+		sendValGauge($(this).parent().children('.gauge-val').val(),$(this).parent().attr('id'));
+	});
+
+	$('.plus-gauge').on('click',function(){
+		var valGauge=parseInt($(this).parent().children('.gauge-val').val());
+
+		if(isNaN(valGauge)) valGauge=50;
+
+		$(this).parent().children('.gauge-val').val(valGauge+5);
+
+		sendValGauge($(this).parent().children('.gauge-val').val(),$(this).parent().attr('id'));
+	});
+
+
+	$('.gauge-val').keypress(function(e) {
+	    if(e.which == 13) {
+	    	sendValGauge($(this).val(),$(this).parent().attr('id'));
+	    }
+	});
+
+	function sendValGauge(valGauge,idGauge){
+		$.getJSON( "./ajax/dashboardControl.ajax.php", 
+			{ action : "updateGauge", val : valGauge, id : idGauge }, 
+			function( data ) {
+				console.log(data);
+			}
+		);
+	}
 	
 	
+	/**********************************************************************************************/
+	/**************************************** Chat ************************************************/
+	/**********************************************************************************************/
 	
-	
-	
-	/*$('#add_message').on('click',function(){
+	$('#add_message').on('click',function(){
 		var message=$('#message').val();
 		var auteur=$('#auteur').val();
 		
 		$.getJSON( "./ajax/dashboardControl.ajax.php", 
 			{ action : "addMessage", message : message, auteur : auteur }, 
 			function( data ) {
-				//console.log(data);
+				console.log(data);
 			}
 		);
 	});
@@ -87,45 +126,13 @@ $(function(){
 	$('#randomLatin').on('click',function(){
 		$('#message').val(getRandomLatin());
 	});
-
-
-	$('#moins-gauge').on('click',function(){
-		var valGauge=parseInt($('#gauge-val').val());
-
-		if(isNaN(valGauge)) valGauge=50;
-
-		$('#gauge-val').val(valGauge-5);
-
-		sendValGauge();
-	});
-
-	$('#plus-gauge').on('click',function(){
-		var valGauge=parseInt($('#gauge-val').val());
-
-		if(isNaN(valGauge)) valGauge=50;
-
-		$('#gauge-val').val(valGauge+5);
-
-		sendValGauge();
-	});
-
-
-	$('#gauge-val').keypress(function(e) {
-	    if(e.which == 13) {
-	    	sendValGauge();
-	    }
-	});
-
-	function sendValGauge(){
-		var valGauge=parseInt($('#gauge-val').val());
-		
-		$.getJSON( "./ajax/dashboardControl.ajax.php", 
-			{ action : "updateGauge", val : valGauge }, 
-			function( data ) {
-				//console.log(data);
-			}
-		);
-	}*/
+	
+	
+	/**********************************************************************************************/
+	/************************************ Gauge Number ********************************************/
+	/**********************************************************************************************/
+	
+	
 });
 
 

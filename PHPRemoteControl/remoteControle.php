@@ -42,14 +42,14 @@
 						</div>
 						<div class="navbar-collapse collapse sidebar-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="#progressBar">Progresse Bar</a></li>
+								<li><a href="#progressBar">Progresse Bar</a></li>
 										
 								<li><a href="#gauge">Gauge</a></li>
 								
 								<li><a href="#alerte">Alerte</a></li>
 								
 								<li><a href="#checker">Checker</a></li>
-								<li><a href="#chat">Chat</a></li>
+								<li class="active"><a href="#chat">Chat</a></li>
 								
 								<li><a href="#scenario">Scenario</a></li>
 							</ul>
@@ -62,7 +62,7 @@
 					<div class="remote-contener" contener-id="#progressBar">
 						
 						<div class="page-header">
-							<h1>Update</h1>
+							<h1>Update ProgressBar</h1>
 						</div>
 						
 						<form class="form-horizontal">
@@ -147,10 +147,61 @@
 							<button type="submit" class="btn btn-primary send">Envoyer aux clients</button>
 						</form>
 					</div>
-					<div class="remote-contener" contener-id="#gauge">Content gauge</div>
+					<div class="remote-contener" contener-id="#gauge">
+						<div class="page-header">
+							<h1>Update Gauge 1</h1>
+						</div>
+						
+						<form class="form-horizontal">
+							<div class="input-group input-group-lg col-lg-2" id="gauge1">
+							 	<span class="input-group-addon moins-gauge">-</span>
+							  	<input type="text" class="form-control gauge-val" style="text-align : right;">
+							  	<span class="input-group-addon plus-gauge">+</span>
+							</div>
+						</form>
+						
+						
+						<div class="page-header">
+							<h1>Update Gauge 2</h1>
+						</div>
+						
+						<form class="form-horizontal">
+							<div class="input-group input-group-lg col-lg-2" id="gauge2">
+							 	<span class="input-group-addon moins-gauge">-</span>
+							  	<input type="text" class="form-control gauge-val" style="text-align : right;">
+							  	<span class="input-group-addon plus-gauge">+</span>
+							</div>
+						</form>
+					</div>
 					<div class="remote-contener" contener-id="#alerte">Content alerte</div>
 					<div class="remote-contener" contener-id="#checker">Content checker</div>
-					<div class="remote-contener" contener-id="#chat">Content chat</div>
+					<div class="remote-contener" contener-id="#chat">
+						<div class="page-header">
+							<h1>Send Message</h1>
+						</div>
+						
+						<form class="form-horizontal">
+							<div class="row">
+								<div class="input-group col-lg-4">
+							  		<span class="input-group-addon" id="basic-addon1">Expediteur</span>
+							  		<input id="auteur" type="text" class="form-control" placeholder="Auteur" aria-describedby="basic-addon1">
+								</div>
+							</div>
+								
+							<div class="row">
+								<div class="input-group col-lg-6">
+									<textarea id="message" rows="6" class="form-control" style="width : 100%"></textarea>
+							  	</div>
+							</div>
+							
+							<div class="row">
+								<div class="input-group col-lg-4">
+									<button class="btn btn-primary" type="submit" id="add_message">Send message</button>
+									<button class="btn btn-primary pull-right" type="submit" id="randomLatin">Random Text</button>
+								</div>
+							</div>
+						</form>
+					</div>
 					<div class="remote-contener" contener-id="#scenario">Content scenario</div>
 				</div>
 			</div>

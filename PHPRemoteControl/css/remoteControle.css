@@ -50,6 +50,11 @@
 	background-color : rgba(0,0,0,0.1);
 }
 
+.input-group-lg>.form-control, .input-group-lg>.input-group-addon, .input-group-lg>.input-group-btn>.btn {
+	height: 46px;
+	padding: 10px 16px; 
+}
+
 html{
 	overflow-x : hidden;
 }
