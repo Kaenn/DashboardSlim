@@ -36,15 +36,23 @@
 			
 			// On vide le conteneur
 			that.empty();
-				
 			
 			var values ={
-				"zabbix" : 5,
-				"wpm" : 46,
-				"oraconsole" : 69,
-				"nagios-sd" : 6,
-				"typhon" : 10,
-				"aws" : 8
+				"Zabbix" : 5,
+				"WPM" : 46,
+				"Oraconsole" : 69,
+				"Nagios-SD" : 6,
+				"Typhon" : 10,
+				"AWS" : 8
+			}
+			
+			var color={
+				"Zabbix" : "#5bc0de",
+				"WPM" : "rgb(128,133,189)",
+				"Oraconsole" : "#04519B",
+				"Nagios-SD" : "rgb(153,77,77)",
+				"Typhon" : "#FF9999",
+				"AWS" : "#7B4F9D"
 			}
 			
 			// Création du squelette
@@ -59,7 +67,7 @@
 				])
 			);
 			
-			update(values);
+			update(values,color);
 			
 			return that;
 		};
@@ -71,6 +79,7 @@
 			var sumVotes=0;
 			var res={};
 			for(var label in resteVotes){
+				resteVotes[label]=(parseInt(resteVotes[label]) || 0);
 				sumVotes+=resteVotes[label];
 				res[label]=0;
 			}
@@ -104,8 +113,7 @@
 			return res;
 		}
 		
-		var update = function(values){
-			
+		var update = function(values,color){
 			var repartition=repartitionProportionnelle(100,values);
 			
 			var progressBarBadge=[];
@@ -113,11 +121,11 @@
 			
 			for(var label in repartition){
 				progressBarBadge.push($('<div>',{"class":"legend-"+label}).append([
-       				$('<span>',{"class":"label-legend"}).html(label),
-       				$('<span>',{"class":"badge badge-legend"}).html(values[label])
+       				$('<span>',{"class":"label-legend"}).css("color",color[label]).html(label),
+       				$('<span>',{"class":"badge badge-legend"}).css("background-color",color[label]).html(values[label])
        			]));
 				
-				progressBar.push($('<div>',{"class":"progress-bar progress-bar-"+label}).css('width',repartition[label]+"%"));
+				progressBar.push($('<div>',{"class":"progress-bar progress-bar-"+label}).css({'width':repartition[label]+"%","background-color":color[label]}));
 			}
 			
 
@@ -129,7 +137,7 @@
 		};
 		
 		var methods={
-			update : function(val){ return update(val)}
+			update : function(val,color){ return update(val,color)}
 		};
 		
 		that.doPublicMethod=function(method,args){

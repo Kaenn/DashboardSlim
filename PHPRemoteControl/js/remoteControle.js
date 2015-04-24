@@ -46,6 +46,14 @@ $(function(){
 					"Nagios-SD": nagios_sd,
 					"Typhon": typhon,
 					"AWS": aws
+				},
+				color : {
+					"Zabbix" : "#5bc0de",
+					"WPM" : "rgb(128,133,189)",
+					"Oraconsole" : "#04519B",
+					"Nagios-SD" : "rgb(153,77,77)",
+					"Typhon" : "#FF9999",
+					"AWS" : "#7B4F9D"
 				}
 			}, 
 			function( data ) {

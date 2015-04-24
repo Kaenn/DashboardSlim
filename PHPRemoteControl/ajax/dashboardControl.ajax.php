@@ -65,9 +65,9 @@ class DashboardControle{
 	
 	public static function updateProgressBar(){
 	
-		if(isset($_GET['value'])){
+		if(isset($_GET['value']) && isset($_GET['color'])){
 	
-			$data=json_encode(array("value" => $_GET['value']));
+			$data=json_encode(array("value" => $_GET['value'],"color" => $_GET['color']));
 				
 			$ch = curl_init('http://localhost:8333/RemoteControle/update-progressbar');
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
