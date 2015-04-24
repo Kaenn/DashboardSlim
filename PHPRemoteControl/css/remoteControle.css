@@ -86,6 +86,26 @@ html{
 	min-width : 150px;
 }
 
+#gauge-number-operand,#gauge-number-operator{
+	width : 70px;
+}
+
+#form-checker .checker-checkbox{
+	margin-top : 10px;
+	margin-bottom : 10px;
+	width : 250px;
+}
+
+#form-checker .checker-checkbox span{
+	cursor : pointer;
+	text-align : left;
+}
+
+#form-checker .checker-checkbox span.checkbox-label{
+	width : 100%;
+}
+
+
 
 
 

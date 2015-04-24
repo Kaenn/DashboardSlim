@@ -47,6 +47,7 @@
 		};
 		
 		var update=function(label,isCheck){
+			console.log(that.find(".checker-plugin .checker-"+label).length);
 			that.find(".checker-plugin .checker-"+label).checker("update",isCheck);
 		};
 		

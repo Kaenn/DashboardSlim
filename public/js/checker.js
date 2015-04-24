@@ -57,6 +57,9 @@
 		};
 		
 		var update = function(isCheck){
+			if(isCheck=="true") isCheck=true;
+			else if(isCheck=="false") isCheck=false;
+
 			if(isCheck){
 				that.removeClass("checker-nok");
 				that.addClass("checker-ok");

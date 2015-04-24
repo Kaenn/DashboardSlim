@@ -109,6 +109,15 @@
 				socket.on('update-gauge', function(val,id) {
 					$('#div-'+id).gauge('update',val);
 				});
+				
+				socket.on('update-gaugeNumber', function(operator,operand) {
+					$('#div-gauge-number').gaugeNumber('update',operator,operand);
+				});
+				
+				socket.on('update-checker', function(label,isCheck) {
+					console.log("glenn => "+label+" / "+isCheck);
+					$('#div-checker').contenerChecker('update',label,isCheck);
+				});
 			});
         </script>
 	</head>

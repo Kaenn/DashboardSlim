@@ -58,7 +58,58 @@ class DashboardControle{
 	
 			return $result;
 		}else{
-			return "Param val manquant!!!";
+			return "Param val ou id manquant!!!";
+		}
+	}
+	
+	
+	public static function updateGaugeNumber(){
+	
+		if(isset($_GET['operator']) && isset($_GET['operand'])){
+	
+			$data=json_encode(array("operator" => $_GET['operator'],"operand" => $_GET['operand']));
+	
+			$ch = curl_init('http://localhost:8333/RemoteControle/update-gaugeNumber');
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			'Content-Type: application/json',
+			'Content-Length: ' . strlen($data),
+			'Accept: application/json',
+			'Cache-Control: no-cache'
+					));
+	
+			$result = curl_exec($ch);
+	
+			return $result;
+		}else{
+			return "Param operator ou operand manquant!!!";
+		}
+	}
+	
+	public static function updateChecker(){
+	
+		if(isset($_GET['label']) && isset($_GET['isCheck'])){
+	
+			$data=json_encode(array("label" => $_GET['label'],"isCheck" => $_GET['isCheck']));
+	
+			$ch = curl_init('http://localhost:8333/RemoteControle/update-checker');
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			'Content-Type: application/json',
+			'Content-Length: ' . strlen($data),
+			'Accept: application/json',
+			'Cache-Control: no-cache'
+					));
+	
+			$result = curl_exec($ch);
+	
+			return $result;
+		}else{
+			return "Param label ou isCheck manquant!!!";
 		}
 	}
 	

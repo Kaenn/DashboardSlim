@@ -48,8 +48,8 @@
 								
 								<li><a href="#alerte">Alerte</a></li>
 								
-								<li><a href="#checker">Checker</a></li>
-								<li class="active"><a href="#chat">Chat</a></li>
+								<li class="active"><a href="#checker">Checker</a></li>
+								<li><a href="#chat">Chat</a></li>
 								
 								<li><a href="#scenario">Scenario</a></li>
 							</ul>
@@ -144,7 +144,7 @@
 								</div>
 							</div>
 							
-							<button type="submit" class="btn btn-primary send">Envoyer aux clients</button>
+							<button type="submit" class="btn btn-primary send send-progressBar">Send</button>
 						</form>
 					</div>
 					<div class="remote-contener" contener-id="#gauge">
@@ -160,6 +160,19 @@
 							</div>
 						</form>
 						
+						<div class="page-header">
+							<h1>Update Gauge Number</h1>
+						</div>
+						
+						<form class="form-horizontal">
+							<div class="input-group input-group-lg col-lg-2">
+								<input type="text" class="form-control" id="gauge-number-operator" style="text-align : center;">
+							 	<span class="input-group-addon">/</span>
+							  	<input type="text" class="form-control" id="gauge-number-operand" style="text-align : center;">
+							</div>
+							<br/>
+							<button type="submit" class="btn btn-primary send send-gaugeNumber">Send</button>
+						</form>
 						
 						<div class="page-header">
 							<h1>Update Gauge 2</h1>
@@ -174,7 +187,56 @@
 						</form>
 					</div>
 					<div class="remote-contener" contener-id="#alerte">Content alerte</div>
-					<div class="remote-contener" contener-id="#checker">Content checker</div>
+					<div class="remote-contener" contener-id="#checker">
+						<div class="page-header">
+							<h1>Update Checker</h1>
+						</div>
+						
+						<form class="form-horizontal" id="form-checker">
+							<div class="input-group input-group-lg col-lg-2 checker-checkbox" id="Zabbix">
+							 	<span class="input-group-addon">
+							    	<input type="checkbox">
+							    </span>
+							    <span class="input-group-addon checkbox-label">Zabbix</span>
+							</div>
+							
+							<div class="input-group input-group-lg col-lg-2 checker-checkbox" id="WPM">
+							 	<span class="input-group-addon">
+							    	<input type="checkbox">
+							    </span>
+							    <span class="input-group-addon checkbox-label">WPM</span>
+							</div>
+							
+							<div class="input-group input-group-lg col-lg-2 checker-checkbox" id="Oraconsole">
+							 	<span class="input-group-addon">
+							    	<input type="checkbox">
+							    </span>
+							    <span class="input-group-addon checkbox-label">Oraconsole</span>
+							</div>
+							
+							<div class="input-group input-group-lg col-lg-2 checker-checkbox" id="Nagios-SD">
+							 	<span class="input-group-addon">
+							    	<input type="checkbox">
+							    </span>
+							    <span class="input-group-addon checkbox-label">Nagios-SD</span>
+							</div>
+							
+							<div class="input-group input-group-lg col-lg-2 checker-checkbox" id="Typhon">
+							 	<span class="input-group-addon">
+							    	<input type="checkbox">
+							    </span>
+							    <span class="input-group-addon checkbox-label">Typhon</span>
+							</div>
+							
+							<div class="input-group input-group-lg col-lg-2 checker-checkbox" id="AWS">
+							 	<span class="input-group-addon">
+							    	<input type="checkbox">
+							    </span>
+							    <span class="input-group-addon checkbox-label">AWS</span>
+							</div>
+						</form>
+					
+					</div>
 					<div class="remote-contener" contener-id="#chat">
 						<div class="page-header">
 							<h1>Send Message</h1>
@@ -196,7 +258,7 @@
 							
 							<div class="row">
 								<div class="input-group col-lg-4">
-									<button class="btn btn-primary" type="submit" id="add_message">Send message</button>
+									<button class="btn btn-primary" type="submit" id="add_message">Send</button>
 									<button class="btn btn-primary pull-right" type="submit" id="randomLatin">Random Text</button>
 								</div>
 							</div>

@@ -26,7 +26,7 @@ $(function(){
 	});
 	
 	
-	$('#remote-content .remote-contener[contener-id="#progressBar"] button.send').on('click',function(event){
+	$('#remote-content .remote-contener[contener-id="#progressBar"] button.send-progressBar').on('click',function(event){
 		
 		var zabbix=$('#remote-content .progressBar-slider[data-slider-id="progressBar-zabbix"]').val();
 		var wpm=$('#remote-content .progressBar-slider[data-slider-id="progressBar-wpm"]').val();
@@ -132,6 +132,46 @@ $(function(){
 	/************************************ Gauge Number ********************************************/
 	/**********************************************************************************************/
 	
+	$('button.send-gaugeNumber').on('click',function(event){
+		var operator=$("#gauge-number-operator").val();
+		var operand=$("#gauge-number-operand").val();
+		
+		if(operator!="" && operand!=""){
+			$.getJSON( "./ajax/dashboardControl.ajax.php", 
+				{ action : "updateGaugeNumber", operator : operator, operand : operand }, 
+				function( data ) {
+					console.log(data);
+				}
+			);
+		}
+		
+		event.stopPropagation();
+		return false;
+	});
+	
+	
+	/**********************************************************************************************/
+	/************************************ Gauge Number ********************************************/
+	/**********************************************************************************************/
+	
+	$(".checker-checkbox span.checkbox-label").on("click",function(){
+		var checkbox=$(this).parent().find("input[type='checkbox']");
+		checkbox.prop("checked",!checkbox.prop("checked"));
+		checkbox.trigger("change");
+	});
+	
+	$(".checker-checkbox span input[type='checkbox']").on("change",function(){
+		var label=$(this).parent().parent().attr('id');
+		
+		console.log({ action : "updateChecker", label : label, isCheck : $(this).prop('checked') });
+		$.getJSON( "./ajax/dashboardControl.ajax.php", 
+			{ action : "updateChecker", label : label, isCheck : $(this).prop('checked') }, 
+			function( data ) {
+				console.log(data);
+			}
+		);
+		
+	});
 	
 });
 
