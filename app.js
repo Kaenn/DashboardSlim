@@ -11,7 +11,7 @@ require('./response');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(multer()); // for parsing multipart/form-data
+app.use(multer().single('singleInputFileName')); // for parsing multipart/form-data
 
 app.use(express.static(__dirname + '/public'));
 // view engine setup
@@ -25,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 app.get('/', function(req, res, next){
-	res.render('DashboardSlim');
+	res.render('simplyView');
 });
 
 var server = require('http').Server(app);
