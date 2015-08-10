@@ -57,4 +57,5 @@ progressBar.router(app,io.sockets);
 var checker=require('./plugin/checker');
 checker.router(app,io.sockets);
 
-
+var alertes=require('./plugin/alertes');
+alertes.router(app,io.sockets);
