@@ -23,9 +23,9 @@
 		<link href="/css/chat.css" rel="stylesheet" type="text/css">
 		<script src="/js/chat.js"></script>
 		
-		<link href="/css/alerte.css" rel="stylesheet" type="text/css">
-		<script src="/js/contenerAlerte.js"></script>
-		<script src="/js/alerte.js"></script>
+		<link href="/css/alerte2.css" rel="stylesheet" type="text/css">
+		<script src="/js/contenerAlerte2.js"></script>
+		<script src="/js/alerte2.js"></script>
 		
 		<link href="/css/jquery-ui-drag-drop.min.css" rel="stylesheet" type="text/css">
 		<script src="/js/jquery-ui-drag-drop.min.js" charset="utf-8"></script>
@@ -33,20 +33,7 @@
 		<script src="/socket.io/socket.io.js"></script>
         <script>
 			$(function(){
-				$('#div-alertes').contenerAlerte({
-					"alertes" : [
-						{id:"1020",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1021",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						{id:"1022",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1023",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1024",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"2"},
-						{id:"1025",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1026",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1027",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1028",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"},
-						{id:"1029",outil:"Zabbix",projet:"Claranet SI",nb_occur:"3",priorite:"1"}
-					]
-				});
+				$('#div-alertes').contenerAlerte();
 				
 				
 				$('#div-chat').chat({'height' : '900px'});
@@ -57,6 +44,21 @@
 					$('#div-chat').chat('addMessage',auteur,time,message);
 				});
 				
+				socket.on('create-alerte', function(id,tache,projet,client,serveur,description,priorite) {
+					$('#div-alertes').contenerAlerte('create',id,tache,projet,client,serveur,description,priorite);
+				});
+				
+				socket.on('update-alerte', function(id,tache,projet,client,serveur,description,priorite) {
+					$('#div-alertes').contenerAlerte('update',id,tache,projet,client,serveur,description,priorite);
+				});
+				
+				socket.on('remove-alerte', function(id) {
+					$('#div-alertes').contenerAlerte('remove',id);
+				});
+				
+				socket.on('update-all-alertes', function(alertes) {
+					$('#div-alertes').contenerAlerte('updateAll',alertes);
+				});
 			});
         </script>
 	</head>
