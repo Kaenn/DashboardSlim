@@ -27,25 +27,13 @@
 		<script src="public/js/jquery-ui-drag-drop.min.js" charset="utf-8"></script>
 
             
-        <!-- Bootstrap core CSS -->
-        <link href="public/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap theme -->
-        <link href="public/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
-
-
-		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
-		<script src="public/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+     
 		
 		
 		
 		<link href="public/css/slim-dashboard.css" rel="stylesheet" type="text/css">
 		
-		
-		<link href="public/css/chat.css" rel="stylesheet" type="text/css">
-		
 		<link href="public/css/gauge.css" rel="stylesheet" type="text/css">
-		
-		<link href="public/css/gaugeNumber.css" rel="stylesheet" type="text/css">
 		
 		
 		<link href="public/css/checker.css" rel="stylesheet" type="text/css">
@@ -53,10 +41,6 @@
 		
 		<link href="public/css/progressBar.css" rel="stylesheet" type="text/css">
 		
-		
-		<link href="public/css/alerte.css" rel="stylesheet" type="text/css">
-		
-		<link href="public/css/jquery-ui-drag-drop.min.css" rel="stylesheet" type="text/css">
 		
 		<style>
 			.panel-prior1{
@@ -84,9 +68,128 @@
 			}
 			
 			.sous-tache-list a{
-				color: #0FACF0;
+				color: #8CBAFF;
     			text-decoration: none;
 			}
+			
+			
+			
+			
+			
+			
+			
+			.alerte-tache{
+				padding-top : 5px;
+			}
+			
+			/*.panel-prior2{
+				border-color: #CE4491;
+				background-color: #CE4491;
+				
+				color : white;
+			}
+			
+			.panel-prior2 .list-group-item{
+				background-color: #DC7AB0;
+			}
+			
+			.panel-prior2 .sous-tache-list a{
+				color: #8CBAFF;
+    			text-decoration: none;
+			}
+			
+			.panel-prior3{
+				border-color: #FD9515;
+				background-color: #FD9515;
+				
+				color : white;
+			}
+			
+			.panel-prior3 .list-group-item{
+				background-color: #FEB154;
+			}
+			
+			.panel-prior3 .sous-tache-list a{
+				color: #0281FF;
+    			text-decoration: none;
+			}
+			
+			
+			.panel-prior4{
+				border-color: #33CC33;
+				background-color: #33CC33;
+				
+				color : white;
+			}
+			
+			.panel-prior4 .list-group-item{
+				background-color: #7CDE7C;
+			}
+			
+			.panel-prior4 .sous-tache-list a{
+				color: #0281FF;
+    			text-decoration: none;
+			}*/
+			
+			
+			
+			
+			
+			
+			#div-alertes .panel-heading{
+				padding : 0;
+			}
+			
+			#div-alertes .panel{
+				color : white;
+				border-color : black;
+			}
+			
+			.panel-heading-content{
+				padding : 10px 15px;
+			}
+			
+			.div-progressbar-tache .progress{
+				margin : 0;
+				height : 5px;
+			}
+			
+			
+			
+			
+			
+			.new-color{
+				/*border-color: #CE4491;*/
+				background-color: #CE4491;
+			}
+			
+			.new-color-bis{
+				background-color: #DC7AB0;
+			}
+			
+			.in-progress-color{
+				border-color: #FD9515;
+				background-color: #FD9515;
+			}
+			
+			.in-progress-color-bis{
+				background-color: #FEB154;
+			}
+			
+			
+			.finish-color{
+				border-color: #33CC33;
+				background-color: #33CC33;
+			}
+			
+			.finish-color-bis{
+				background-color: #7CDE7C;
+			}
+			
+			
+			
+			
+			
 		</style>
 		
 	</head>
@@ -109,253 +212,313 @@
 				<div class="col-lg-8 cadre middle-cadre">
 					<div id="div-alertes">
 						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-						   <div class="panel panel-prior1">
+						
+							<div class="panel new-color">
 						    <div class="panel-heading" role="tab" id="headingOne">
 						      <h4 class="panel-title">
-						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-						          <div class="row" priorite="priorite" alerte-id="5">
+						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          <div class="row panel-heading-content" style="vertical-align : middle;">
 						          	<div class="col-lg-3">
 						          		<div class="row alerte-row-tache">
-						          			<span class="alerte-tache">Scan de port</span>
+						          			<span class="alerte-tache"><span class="glyphicon glyphicon-unchecked" aria-hidden="true" style="font-size:30px; margin-right : 10px;"></span>Scan de port</span>
 						          		</div>
 						          	</div>
 						          	<div class="col-lg-9">
 						          		<div class="row">
-						          			<div class="col-md-5 col-sm-6 col-xs-12">
-						          				<span class="alerte-cltPrj">NETVIBES SAS/Netvibes</span>
+						          			<div class="col-md-6 col-sm-6 col-xs-12">
+						          				<span class="alerte-cltPrj bold-txt">NETVIBES SAS/Netvibes</span>
 						          			</div>
-						          			<div class="col-md-5 col-sm-6 col-xs-12">
-						          				<span class="alerte-serveur">193.189.143.131</span>
-						          			</div>
-						          			<div class="col-md-2 col-sm-12 col-xs-12">
-						          				<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-						          				<span class="alerte-checked-name">glenn.inizan</span>
+						          			<div class="col-md-6 col-sm-6 col-xs-12">
+						          				<span class="alerte-serveur pull-right bold-txt">193.189.143.132</span>
 						          			</div>
 						          		</div>
-						          		<div class="row alerte-short-description"><span>Port ouvert sur cette IP</span>
+						          		<div class="row alerte-short-description" style="text-align:center;"><span style="font-size:22px; font-weight : bold; margin-left : 0;">Port ouvert non d&eacute;clar&eacute;</span>
 						          		</div>
 						          	</div>
+						          </div>
+						           <div class="div-progressbar-tache">
+						          		<div class="progress">
+						          			<div class="progress-bar new-color-bis" style="width: 34%;"></div>
+						          			<div class="progress-bar in-progress-color-bis" style="width: 33%;"></div>
+						          			<div class="progress-bar finish-color-bis" style="width: 33%;"></div>
+						          		</div>
 						          </div>
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-						      <ul class="list-group">
-						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						     	<ul class="list-group">
+						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list new-color-bis">
 						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+						          		<span class="alerte-checked-name">glenn.inizan</span>
+						          	</div>
+						          	<div class="col-lg-2">
 						          		<span class="tache-date">13/08/2015 10:20:31</span> 
 						          	</div>
 						          	
-						          	<div class="col-lg-9">
+						          	<div class="col-lg-7">
 						          		<div class="col-lg-12">
 						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 443</span>
 						          		</div>
 						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 						          		</div>
 						          		
 						          	</div>
 						          </li>
-					          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
-						          	<div class="col-lg-offset-1 col-lg-2">
-						          		<span class="tache-date">13/08/2015 10:20:31</span> 
-						          	</div>
-						          	
-						          	<div class="col-lg-9">
-						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
-						          		</div>
-						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
-						          		</div>
-						          		
-						          	</div>
-						          </li>
-					          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
-						          	<div class="col-lg-offset-1 col-lg-2">
-						          		<span class="tache-date">13/08/2015 10:20:31</span> 
-						          	</div>
-						          	
-						          	<div class="col-lg-9">
-						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
-						          		</div>
-						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
-						          		</div>
-						          		
-						          	</div>
-						          </li>
-					        </ul>
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list in-progress-color-bis">
+							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+							          		<span class="alerte-checked-name"></span>
+							          	</div>
+							          	<div class="col-lg-2">
+							          		<span class="tache-date">13/08/2015 10:20:31</span> 
+							          	</div>
+							          	
+							          	<div class="col-lg-7">
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
+							          		</div>
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
+							          		</div>
+							          		
+							          	</div>
+							          </li>
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list finish-color-bis">
+							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+							          		<span class="alerte-checked-name">glenn.inizan</span>
+							          	</div>
+							          	<div class="col-lg-2">
+							          		<span class="tache-date">13/08/2015 10:20:31</span> 
+							          	</div>
+							          	
+							          	<div class="col-lg-7">
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
+							          		</div>
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
+							          		</div>
+							          		
+							          	</div>
+							          </li>
+						        </ul>  
 						    </div>
+						    
 						  </div>
 						  
 						  
-						  <div class="panel panel-prior1">
+						  
+						  
+						  <div class="panel in-progress-color">
 						    <div class="panel-heading" role="tab" id="headingTwo">
 						      <h4 class="panel-title">
-						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						          <div class="row" priorite="priorite" alerte-id="5">
+						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+						          <div class="row panel-heading-content" style="vertical-align : middle;">
 						          	<div class="col-lg-3">
 						          		<div class="row alerte-row-tache">
-						          			<span class="alerte-tache">Scan de port</span>
+						          			<span class="alerte-tache"><span class="glyphicon glyphicon-unchecked" aria-hidden="true" style="font-size:30px; margin-right : 10px;"></span>Scan de port</span>
 						          		</div>
 						          	</div>
 						          	<div class="col-lg-9">
 						          		<div class="row">
-						          			<div class="col-md-5 col-sm-6 col-xs-12">
-						          				<span class="alerte-cltPrj">NETVIBES SAS/Netvibes</span>
+						          			<div class="col-md-6 col-sm-6 col-xs-12">
+						          				<span class="alerte-cltPrj bold-txt">NETVIBES SAS/Netvibes</span>
 						          			</div>
-						          			<div class="col-md-5 col-sm-6 col-xs-12">
-						          				<span class="alerte-serveur">193.189.143.132</span>
-						          			</div>
-						          			<div class="col-md-2 col-sm-12 col-xs-12">
-						          				<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
-						          				<span class="alerte-checked-name"></span>
+						          			<div class="col-md-6 col-sm-6 col-xs-12">
+						          				<span class="alerte-serveur pull-right bold-txt">193.189.143.132</span>
 						          			</div>
 						          		</div>
-						          		<div class="row alerte-short-description"><span>Port ouvert sur cette IP</span>
+						          		<div class="row alerte-short-description" style="text-align:center;"><span style="font-size:22px; font-weight : bold; margin-left : 0;">Port ouvert non d&eacute;clar&eacute;</span>
 						          		</div>
 						          	</div>
+						          </div>
+						           <div class="div-progressbar-tache">
+						          		<div class="progress">
+						          			<div class="progress-bar new-color-bis" style="width: 0%;"></div>
+						          			<div class="progress-bar in-progress-color-bis" style="width: 66%;"></div>
+						          			<div class="progress-bar finish-color-bis" style="width: 34%;"></div>
+						          		</div>
 						          </div>
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 						     	<ul class="list-group">
-						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list in-progress-color-bis">
 						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+						          		<span class="alerte-checked-name">glenn.inizan</span>
+						          	</div>
+						          	<div class="col-lg-2">
 						          		<span class="tache-date">13/08/2015 10:20:31</span> 
 						          	</div>
 						          	
-						          	<div class="col-lg-9">
+						          	<div class="col-lg-7">
 						          		<div class="col-lg-12">
 						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 443</span>
 						          		</div>
 						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 						          		</div>
 						          		
 						          	</div>
 						          </li>
-						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list in-progress-color-bis">
 							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+							          		<span class="alerte-checked-name"></span>
+							          	</div>
+							          	<div class="col-lg-2">
 							          		<span class="tache-date">13/08/2015 10:20:31</span> 
 							          	</div>
 							          	
-							          	<div class="col-lg-9">
+							          	<div class="col-lg-7">
 							          		<div class="col-lg-12">
 							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
 							          		</div>
 							          		<div class="col-lg-12">
-							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 							          		</div>
 							          		
 							          	</div>
 							          </li>
-						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list finish-color-bis">
 							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+							          		<span class="alerte-checked-name">glenn.inizan</span>
+							          	</div>
+							          	<div class="col-lg-2">
 							          		<span class="tache-date">13/08/2015 10:20:31</span> 
 							          	</div>
 							          	
-							          	<div class="col-lg-9">
+							          	<div class="col-lg-7">
 							          		<div class="col-lg-12">
 							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
 							          		</div>
 							          		<div class="col-lg-12">
-							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 							          		</div>
 							          		
 							          	</div>
 							          </li>
 						        </ul>  
 						    </div>
+						    
 						  </div>
 						  
 						  
-						  <div class="panel panel-prior1">
+						  
+						  
+						  <div class="panel finish-color">
 						    <div class="panel-heading" role="tab" id="headingThree">
 						      <h4 class="panel-title">
-						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						         	<div class="row" priorite="priorite" alerte-id="5">
-							          	<div class="col-lg-3">
-							          		<div class="row alerte-row-tache">
-							          			<span class="alerte-tache">Scan de port</span>
-							          		</div>
-							          	</div>
-							          	<div class="col-lg-9">
-							          		<div class="row">
-							          			<div class="col-md-5 col-sm-6 col-xs-12">
-							          				<span class="alerte-cltPrj">NETVIBES SAS/Netvibes</span>
-							          			</div>
-							          			<div class="col-md-5 col-sm-6 col-xs-12">
-							          				<span class="alerte-serveur">193.189.143.149</span>
-							          			</div>
-							          			<div class="col-md-2 col-sm-12 col-xs-12">
-							          				<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-							          				<span class="alerte-checked-name">glenn.inizan</span>
-							          			</div>
-							          		</div>
-							          		<div class="row alerte-short-description"><span>Port ouvert sur cette IP</span>
-							          		</div>
-							          	</div>
-							          </div>
+						        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+						          <div class="row panel-heading-content" style="vertical-align : middle;">
+						          	<div class="col-lg-3">
+						          		<div class="row alerte-row-tache">
+						          			<span class="alerte-tache"><span class="glyphicon glyphicon-unchecked" aria-hidden="true" style="font-size:30px; margin-right : 10px;"></span>Scan de port</span>
+						          		</div>
+						          	</div>
+						          	<div class="col-lg-9">
+						          		<div class="row">
+						          			<div class="col-md-6 col-sm-6 col-xs-12">
+						          				<span class="alerte-cltPrj bold-txt">NETVIBES SAS/Netvibes</span>
+						          			</div>
+						          			<div class="col-md-6 col-sm-6 col-xs-12">
+						          				<span class="alerte-serveur pull-right bold-txt">193.189.143.132</span>
+						          			</div>
+						          		</div>
+						          		<div class="row alerte-short-description" style="text-align:center;"><span style="font-size:22px; font-weight : bold; margin-left : 0;">Port ouvert non d&eacute;clar&eacute;</span>
+						          		</div>
+						          	</div>
+						          </div>
+						           <div class="div-progressbar-tache">
+						          		<div class="progress">
+						          			<div class="progress-bar new-color-bis" style="width: 0%;"></div>
+						          			<div class="progress-bar in-progress-color-bis" style="width: 0%;"></div>
+						          			<div class="progress-bar finish-color-bis" style="width: 100%;"></div>
+						          		</div>
+						          </div>
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-							     <ul class="list-group">
-						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						     	<ul class="list-group">
+						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list finish-color-bis">
 						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+						          		<span class="alerte-checked-name">glenn.inizan</span>
+						          	</div>
+						          	<div class="col-lg-2">
 						          		<span class="tache-date">13/08/2015 10:20:31</span> 
 						          	</div>
 						          	
-						          	<div class="col-lg-9">
+						          	<div class="col-lg-7">
 						          		<div class="col-lg-12">
 						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 443</span>
 						          		</div>
 						          		<div class="col-lg-12">
-						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 						          		</div>
 						          		
 						          	</div>
 						          </li>
-						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list finish-color-bis">
 							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+							          		<span class="alerte-checked-name"></span>
+							          	</div>
+							          	<div class="col-lg-2">
 							          		<span class="tache-date">13/08/2015 10:20:31</span> 
 							          	</div>
 							          	
-							          	<div class="col-lg-9">
+							          	<div class="col-lg-7">
 							          		<div class="col-lg-12">
 							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
 							          		</div>
 							          		<div class="col-lg-12">
-							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 							          		</div>
 							          		
 							          	</div>
 							          </li>
-						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list finish-color-bis">
 							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+							          		<span class="alerte-checked-name">glenn.inizan</span>
+							          	</div>
+							          	<div class="col-lg-2">
 							          		<span class="tache-date">13/08/2015 10:20:31</span> 
 							          	</div>
 							          	
-							          	<div class="col-lg-9">
+							          	<div class="col-lg-7">
 							          		<div class="col-lg-12">
 							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
 							          		</div>
 							          		<div class="col-lg-12">
-							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          			<span><span class="bold-txt">Documentation : </span><a href="#">A cette adresse.</a></span>
 							          		</div>
 							          		
 							          	</div>
 							          </li>
 						        </ul>  
 						    </div>
+						    
 						  </div>
-						</div>
-					</div>
+						  
+						  
+						  
+						  
+						</div>  
+						  </div>
+						  
 				</div>
+				
+				
 				
 				<div class="col-lg-2 cadre right-cadre ui-sortable">
 					<div id="div-checker" class="ui-sortable-handle"><div class="panel-default panel-contener"><div class="panel-body panel-checker"><ul class="list-group checker-plugin"><li class="checker-Scan de port checker-ok list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="checker-label">Scan de port</span></li><li class="checker-BackUp checker-nok list-group-item"><span class="glyphicon glyphicon-remove"></span><span class="checker-label">BackUp</span></li><li class="checker-JobScheduler checker-ok list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="checker-label">JobScheduler</span></li></ul></div></div></div>
