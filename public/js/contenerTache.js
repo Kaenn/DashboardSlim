@@ -35,6 +35,7 @@
 			
 			that.addClass("contener-taches");
 			
+			that._taches=$("<div>",{'class':'panel-group','id':'contenerTache','role':'tablist','aria-multiselectable':true});
 			
 			$.each(that.parametres.taches, function(index,tache){
 				add(tache.source,tache.idClient,tache.idProjet,tache.cible,tache.titre,tache.date,tache.description,tache.consigne);
@@ -54,19 +55,21 @@
 		// Ajout de la tache
 		// Creation si elle n'existe pas sinon mise a jours
 		var add=function(source,idClient,idProjet,cible,titre,date,description,consigne){
-			if(tacheExiste(getIDTache(source,cible,titre))){
-				update(source,idClient,idProjet,cible,titre,date,description,consigne);
+			var id=getIDTache(source,cible,titre);
+			
+			if(tacheExiste(id)){
+				update(id,source,idClient,idProjet,cible,titre,date,description,consigne);
 			}else{
-				create(source,idClient,idProjet,cible,titre,date,description,consigne);
+				create(id,source,idClient,idProjet,cible,titre,date,description,consigne);
 			}
 			
 			return that;
 		}
 		
 		// Creation de la tache
-		var create=function(source,idClient,idProjet,cible,titre,date,description,consigne){
-			that.append(
-				
+		var create=function(id,source,idClient,idProjet,cible,titre,date,description,consigne){
+			that._taches.append(
+				$("<div>").tache(id,source,idClient,idProjet,cible,titre,date,description,consigne)
 			);
 		}
 		
