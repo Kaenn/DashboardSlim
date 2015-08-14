@@ -26,402 +26,342 @@
 		<link href="public/css/jquery-ui-drag-drop.min.css" rel="stylesheet" type="text/css">
 		<script src="public/js/jquery-ui-drag-drop.min.js" charset="utf-8"></script>
 
+            
+        <!-- Bootstrap core CSS -->
+        <link href="public/css/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap theme -->
+        <link href="public/css/bootstrap-3.3.2/css/bootstrap-theme-slate.min.css" rel="stylesheet">
+
+
+		<script type="text/javascript" src="public/js/jquery-2.1.3.min.js"></script>
+		<script src="public/css/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+		
+		
+		
+		<link href="public/css/slim-dashboard.css" rel="stylesheet" type="text/css">
+		
+		
+		<link href="public/css/chat.css" rel="stylesheet" type="text/css">
+		
+		<link href="public/css/gauge.css" rel="stylesheet" type="text/css">
+		
+		<link href="public/css/gaugeNumber.css" rel="stylesheet" type="text/css">
+		
+		
+		<link href="public/css/checker.css" rel="stylesheet" type="text/css">
+		
+		
+		<link href="public/css/progressBar.css" rel="stylesheet" type="text/css">
+		
+		
+		<link href="public/css/alerte.css" rel="stylesheet" type="text/css">
+		
+		<link href="public/css/jquery-ui-drag-drop.min.css" rel="stylesheet" type="text/css">
 		
 		<style>
-			body{
-				padding : 0;
-			}
-			
-			.left-cadre{
-				background-color : #202020;
-				padding : 10px 15px;
-			}
-			
-			.left-cadre > *{
-				padding : 2.5px 0px;
-			}
-			
-			.dash-alerte{
-				width : 100%;
-				background-color : red;
+			.panel-prior1{
+				border-color: #FF0000;
+				background-color: #FF0000;
 				
-				padding : 10px;
+				color : white;
 			}
 			
-			.debug{
-				border : 1px solid black;
+			.panel-prior1 .list-group-item{
+				background-color: #FF4D4D;
 			}
 			
+			.anti-row-left{
+				margin-left : 0px;
+			}
 			
+			.tache-date{
+				font-size : 18px;
+				font-weight : bold;
+			}
 			
+			.bold-txt{
+				font-weight : bold;
+			}
 			
+			.sous-tache-list a{
+				color: #0FACF0;
+    			text-decoration: none;
+			}
 		</style>
-
 		
-		<script>
-		
-			$(function() {
-				/*$('#div-gauge1').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
-				$('#div-gauge-number').gaugeNumber({title : "Statistique du jour"});
-				$('#div-gauge2').gauge({"value" : 50, "titre" : "Titre du gauge 1", "height" :  180});
-				
-				$(".left-cadre").sortable();*/
-				//$('#div-alerteContent').contenerAlerte();
-				
-				$("#alerte-content").contenerAlerte({
-					alertes : [
-						{
-							"id" : 1,
-							"tache" : "Securite",
-							"projet" : "Projet",
-							"client" : "client",
-							"serveur" : "serveur",
-							"description" : "description",
-							"priorite" : 1
-						},
-						{
-							"id" : 2,
-							"tache" : "Securite2",
-							"projet" : "Projet",
-							"client" : "client",
-							"serveur" : "serveur",
-							"description" : "description",
-							"priorite" : 1
-						},
-						{
-							"id" : 3,
-							"tache" : "Securite3",
-							"projet" : "Projet",
-							"client" : "client",
-							"serveur" : "serveur",
-							"description" : "description",
-							"priorite" : 1
-						}
-					]
-				});
-				
-				$("#test").on("click",function(){
-					$("#alerte-content").contenerAlerte("updateAll",
-						[{
-							"id" : 1,
-							"tache" : "Securite",
-							"projet" : "Projet",
-							"client" : "client",
-							"serveur" : "serveur",
-							"description" : "description",
-							"priorite" : 1
-						},
-						{
-							"id" : 2,
-							"tache" : "Securite2",
-							"projet" : "Projet",
-							"client" : "client",
-							"serveur" : "serveur",
-							"description" : "description",
-							"priorite" : 1
-						},
-						{
-							"id" : 4,
-							"tache" : "Securite4",
-							"projet" : "Projet",
-							"client" : "client",
-							"serveur" : "serveur",
-							"description" : "description",
-							"priorite" : 1
-						}]
-					);
-				});
-			});
-		</script>
 	</head>
 	<body>
-		<button id="test" >Test</button>
-	
-		<div id="alerte-content"></div>
-		<!-- <div class="container">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-8">
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row alerte-row-tache">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-md-5 col-sm-6 col-xs-12">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-md-5 col-sm-6 col-xs-12">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-md-2 col-sm-12 col-xs-12">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="col-lg-12 cadre top-cadre">
+					<div id="div-progressBar"><div class="content"><div class="row"><div class="progress-legend"><div class="legend-Scan de port"><span class="label-legend" style="color: rgb(91, 192, 222);">Scan de port</span><span class="badge badge-legend" style="background-color: rgb(91, 192, 222);">15</span></div><div class="legend-BackUp"><span class="label-legend" style="color: rgb(128, 133, 189);">BackUp</span><span class="badge badge-legend" style="background-color: rgb(128, 133, 189);">32</span></div><div class="legend-JobScheduler"><span class="label-legend" style="color: rgb(4, 81, 155);">JobScheduler</span><span class="badge badge-legend" style="background-color: rgb(4, 81, 155);">22</span></div></div></div><div class="row"><div class="progress"><div class="progress-bar progress-bar-Scan de port" style="width: 22%; background-color: rgb(91, 192, 222);"></div><div class="progress-bar progress-bar-BackUp" style="width: 46%; background-color: rgb(128, 133, 189);"></div><div class="progress-bar progress-bar-JobScheduler" style="width: 32%; background-color: rgb(4, 81, 155);"></div></div></div></div></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-2 cadre left-cadre ui-sortable">
+					<div id="div-gauge1" class="ui-sortable-handle"><div class="panel-default panel-gauge"><div class="gauge-graph"><svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 180;"><g transform="translate(25,28)"><g transform="rotate(135,0,0)"><path class="gauge-background" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z"></path><g transform="rotate(56,0,0)" class="gauge-pourcent"><path class="value-color" d="M0,0 l25,0 a25,25 0 0,0 -25,-25z"></path></g><path class="font-color" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z l25,0 l0,-50 l-100,0 l0,100 l100,0 l0,-50z"></path></g></g><text x="25" y="31" fill="white" class="gauge-text-pourcent">21%</text></svg><div class="content-title"><div><div class="title">Pourcentage de taches prioritaires</div></div></div></div></div></div>
+					<div id="div-gauge-number" class="panel-gaugeNumber ui-sortable-handle"><div><div class="inline gauge-group"><div class="number-gauge operator"><div class="curr-value">13</div></div><span class="separate"> / </span><div class="number-gauge operand"><div class="curr-value">20</div></div></div><div class="inline gauge-group"><span class="pourcentage">65%</span></div><div class="content-title"><div><div class="title">Taches en cours</div></div></div></div></div>
+					<div id="div-gauge2" class="ui-sortable-handle"><div class="panel-default panel-gauge"><div class="gauge-graph"><svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 180;"><g transform="translate(25,28)"><g transform="rotate(135,0,0)"><path class="gauge-background" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z"></path><g transform="rotate(159,0,0)" class="gauge-pourcent"><path class="value-color" d="M25,0 a25,25 0 0,0 -50,0z"></path></g><path class="font-color" d="M25,0 a25,25 0 1,1 -25,-25 l0,10 a15,15 0 1,0 15,15 z l25,0 l0,-50 l-100,0 l0,100 l100,0 l0,-50z"></path></g></g><text x="25" y="31" fill="white" class="gauge-text-pourcent">59%</text></svg><div class="content-title"><div><div class="title">Pourcentage de taches trait&eacute;es</div></div></div></div></div></div>
 					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="dash-alerte row">
-						<div class="row">
-							<div class="col-lg-2">
-								<div class="row">
-									<span class="alerte-tache">Security</span>
-								</div>
-								
-							</div>
-							<div class="col-lg-10">
-								<div class="row">
-									<div class="col-lg-5">
-										<span class="alerte-cltPrj">Client /Project</span>
-									</div>
-									<div class="col-lg-5">
-										<span class="alerte-serveur">Serveur</span>
-									</div>
-									<div class="col-lg-2">
-								    	<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-								    	<span>glenn.inizan</span>
-									</div>
-								</div>
-								<div class="row alerte-short-description">
-									<span>This is the short description...</span>
-								</div>
-							</div>
+				</div>
+			
+				<div class="col-lg-8 cadre middle-cadre">
+					<div id="div-alertes">
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						   <div class="panel panel-prior1">
+						    <div class="panel-heading" role="tab" id="headingOne">
+						      <h4 class="panel-title">
+						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+						          <div class="row" priorite="priorite" alerte-id="5">
+						          	<div class="col-lg-3">
+						          		<div class="row alerte-row-tache">
+						          			<span class="alerte-tache">Scan de port</span>
+						          		</div>
+						          	</div>
+						          	<div class="col-lg-9">
+						          		<div class="row">
+						          			<div class="col-md-5 col-sm-6 col-xs-12">
+						          				<span class="alerte-cltPrj">NETVIBES SAS/Netvibes</span>
+						          			</div>
+						          			<div class="col-md-5 col-sm-6 col-xs-12">
+						          				<span class="alerte-serveur">193.189.143.131</span>
+						          			</div>
+						          			<div class="col-md-2 col-sm-12 col-xs-12">
+						          				<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+						          				<span class="alerte-checked-name">glenn.inizan</span>
+						          			</div>
+						          		</div>
+						          		<div class="row alerte-short-description"><span>Port ouvert sur cette IP</span>
+						          		</div>
+						          	</div>
+						          </div>
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+						      <ul class="list-group">
+						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="tache-date">13/08/2015 10:20:31</span> 
+						          	</div>
+						          	
+						          	<div class="col-lg-9">
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 443</span>
+						          		</div>
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          		</div>
+						          		
+						          	</div>
+						          </li>
+					          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="tache-date">13/08/2015 10:20:31</span> 
+						          	</div>
+						          	
+						          	<div class="col-lg-9">
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
+						          		</div>
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          		</div>
+						          		
+						          	</div>
+						          </li>
+					          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="tache-date">13/08/2015 10:20:31</span> 
+						          	</div>
+						          	
+						          	<div class="col-lg-9">
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
+						          		</div>
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          		</div>
+						          		
+						          	</div>
+						          </li>
+					        </ul>
+						    </div>
+						  </div>
+						  
+						  
+						  <div class="panel panel-prior1">
+						    <div class="panel-heading" role="tab" id="headingTwo">
+						      <h4 class="panel-title">
+						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						          <div class="row" priorite="priorite" alerte-id="5">
+						          	<div class="col-lg-3">
+						          		<div class="row alerte-row-tache">
+						          			<span class="alerte-tache">Scan de port</span>
+						          		</div>
+						          	</div>
+						          	<div class="col-lg-9">
+						          		<div class="row">
+						          			<div class="col-md-5 col-sm-6 col-xs-12">
+						          				<span class="alerte-cltPrj">NETVIBES SAS/Netvibes</span>
+						          			</div>
+						          			<div class="col-md-5 col-sm-6 col-xs-12">
+						          				<span class="alerte-serveur">193.189.143.132</span>
+						          			</div>
+						          			<div class="col-md-2 col-sm-12 col-xs-12">
+						          				<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+						          				<span class="alerte-checked-name"></span>
+						          			</div>
+						          		</div>
+						          		<div class="row alerte-short-description"><span>Port ouvert sur cette IP</span>
+						          		</div>
+						          	</div>
+						          </div>
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						     	<ul class="list-group">
+						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="tache-date">13/08/2015 10:20:31</span> 
+						          	</div>
+						          	
+						          	<div class="col-lg-9">
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 443</span>
+						          		</div>
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          		</div>
+						          		
+						          	</div>
+						          </li>
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="tache-date">13/08/2015 10:20:31</span> 
+							          	</div>
+							          	
+							          	<div class="col-lg-9">
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
+							          		</div>
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          		</div>
+							          		
+							          	</div>
+							          </li>
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="tache-date">13/08/2015 10:20:31</span> 
+							          	</div>
+							          	
+							          	<div class="col-lg-9">
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
+							          		</div>
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          		</div>
+							          		
+							          	</div>
+							          </li>
+						        </ul>  
+						    </div>
+						  </div>
+						  
+						  
+						  <div class="panel panel-prior1">
+						    <div class="panel-heading" role="tab" id="headingThree">
+						      <h4 class="panel-title">
+						        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						         	<div class="row" priorite="priorite" alerte-id="5">
+							          	<div class="col-lg-3">
+							          		<div class="row alerte-row-tache">
+							          			<span class="alerte-tache">Scan de port</span>
+							          		</div>
+							          	</div>
+							          	<div class="col-lg-9">
+							          		<div class="row">
+							          			<div class="col-md-5 col-sm-6 col-xs-12">
+							          				<span class="alerte-cltPrj">NETVIBES SAS/Netvibes</span>
+							          			</div>
+							          			<div class="col-md-5 col-sm-6 col-xs-12">
+							          				<span class="alerte-serveur">193.189.143.149</span>
+							          			</div>
+							          			<div class="col-md-2 col-sm-12 col-xs-12">
+							          				<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+							          				<span class="alerte-checked-name">glenn.inizan</span>
+							          			</div>
+							          		</div>
+							          		<div class="row alerte-short-description"><span>Port ouvert sur cette IP</span>
+							          		</div>
+							          	</div>
+							          </div>
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+							     <ul class="list-group">
+						          <li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+						          	<div class="col-lg-offset-1 col-lg-2">
+						          		<span class="tache-date">13/08/2015 10:20:31</span> 
+						          	</div>
+						          	
+						          	<div class="col-lg-9">
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 443</span>
+						          		</div>
+						          		<div class="col-lg-12">
+						          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+						          		</div>
+						          		
+						          	</div>
+						          </li>
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="tache-date">13/08/2015 10:20:31</span> 
+							          	</div>
+							          	
+							          	<div class="col-lg-9">
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 1887</span>
+							          		</div>
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          		</div>
+							          		
+							          	</div>
+							          </li>
+						          	<li class="list-group-item row anti-row-left vertical-center sous-tache-list">
+							          	<div class="col-lg-offset-1 col-lg-2">
+							          		<span class="tache-date">13/08/2015 10:20:31</span> 
+							          	</div>
+							          	
+							          	<div class="col-lg-9">
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">Description : </span>Port ouvert non d&eacute;clar&eacute; : 871</span>
+							          		</div>
+							          		<div class="col-lg-12">
+							          			<span><span class="bold-txt">R&eacute;solution : </span><a href="#">A cette adresse.</a></span>
+							          		</div>
+							          		
+							          	</div>
+							          </li>
+						        </ul>  
+						    </div>
+						  </div>
 						</div>
 					</div>
 				</div>
+				
+				<div class="col-lg-2 cadre right-cadre ui-sortable">
+					<div id="div-checker" class="ui-sortable-handle"><div class="panel-default panel-contener"><div class="panel-body panel-checker"><ul class="list-group checker-plugin"><li class="checker-Scan de port checker-ok list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="checker-label">Scan de port</span></li><li class="checker-BackUp checker-nok list-group-item"><span class="glyphicon glyphicon-remove"></span><span class="checker-label">BackUp</span></li><li class="checker-JobScheduler checker-ok list-group-item"><span class="glyphicon glyphicon-ok"></span><span class="checker-label">JobScheduler</span></li></ul></div></div></div>
+					<div id="div-chat" class="ui-sortable-handle"><div class="panel-chat"><ul class="chat" style="height: 500px;"><div class="chat-content-message"><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">erwan.le.tiec</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 5 heures</small></div><p>GDF SITA - mep en preprod</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">alan.oliveux</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 4 heures</small></div><p>Air-Liquide : backup BDD al-ppr-bdd1 #322308</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">kevin.prati </strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 3 heures</small></div><p>WEB-SWAN ticket 322757</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">james.allardice</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 2 heures</small></div><p>MEP hybris ecom FB US</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">edouard.kleinhans</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 2 heures</small></div><p>Op&eacute;ration R&eacute;gionsJob</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">edouard.kleinhans</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 1 heure</small></div><p>Update RJ-SQL06</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">erwan.lerale</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 6 minutes</small></div><p>sd-ar1 - work in progress</p></div></li><li class="clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">walter.blanchard</strong><small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> 2 minutes</small></div><p>Travelsoft - maintenance sur les routeurs AUCHAN - arr&ecirc;t &eacute;lectrique d$&egrave;s le 13/08/2015</p></div></li></div></ul></div></div>
+				</div>
 			</div>
-		</div> -->
-	</body>
-</html>
+		</div>
+	
+</body></html>
